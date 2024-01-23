@@ -143,9 +143,12 @@ ui <- fluidPage(title = "Visualizadores de datos", lang = "es",
   )
 )
 
-# Define server logic required to draw a histogram
+
+
+# readr::write_file(as.character(ui), file = "index.html")
+
 server <- function(input, output) {
 }
 
-# Run the application 
+
 shinyApp(ui = ui, server = server)
