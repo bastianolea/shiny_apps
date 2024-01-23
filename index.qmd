@@ -27,21 +27,21 @@ color_texto_brechas = "#c1abfb"
 color_corrupcion = "#111111"
 color_texto_corrupcion = "#DDDDDD"
 
-estilo_cajas <- "margin: 18px; padding: 16px; padding-top: 0; 
-                 height: 400px; width: 300px;
+estilo_cajas <- "margin: 18px; padding: 16px; padding-top: 1px; 
+                 max-height: 400px; max-width: 300px;
                  border-radius: 8px;
-                 box-sizing: border-box;
-                 float: left; font-size: 90%; text-align: center;
-"
+                 font-size: 90%; text-align: center;
+                 margin: auto;
+                 margin-bottom: 36px; margin-top: 36px;
+                 "
 
 estilar_cajas <- function(.color_fondo, .color_texto) {
   c(estilo_cajas, 
     paste("background-color: ", .color_fondo, "; 
           color: ", .color_texto, " !important;
-          outline: 1px solid ", colorspace::lighten(.color_fondo, 0.07), ";
+          outline: 1px solid ", colorspace::lighten(.color_fondo, 0.1), ";
           ")
     # box-shadow: 0px 10px 50px -20px ",  colorspace::lighten(.color_fondo, 0.1), ";
-    
   )
 }
 ```
@@ -66,6 +66,7 @@ fluidPage(title = "Visualizadores de datos", lang = "es",
           tags$style(paste("
              a {
              color: ", color_enlaces, ";
+             text-decoration: none !important;
              }
            
              a:hover {
@@ -86,10 +87,10 @@ fluidPage(title = "Visualizadores de datos", lang = "es",
                    h1("Visualizadores de datos en R/Shiny", 
                       style = paste("margin-bottom: 24px; color:", color_enlaces, ";")),
                    
-                   div(style = paste("padding: 16px; padding-bottom: 1px; background-color: #1c0e24; border-radius: 6px; 
+                   div(style = paste("padding: 16px; padding-bottom: 1px; background-color: #2d163a; border-radius: 6px; 
                                      margin-left: 30px; margin-right: 30px;
                margin-bottom: 20px; font-size: 82%;", 
-               "outline: 1px solid ", colorspace::lighten("#1c0e24", 0.05), ";"),
+               "outline: 1px solid ", colorspace::lighten("#2d163a", 0.05), ";"),
                p("Portafolio de aplicaciones web de código abierto diseñadas y programadas por",
                  tags$a("Bastián Olea Herrera,", target = "_blank", href = "https://bastian.olea.biz"),
                  "magíster en sociología y", em("data scientist."))
@@ -121,26 +122,17 @@ fluidPage(title = "Visualizadores de datos", lang = "es",
 #| echo: false
 #| output: asis
 
-fluidPage(title = "Visualizadores de datos", lang = "es",
-          fluidRow(
-            column(12, align = "center", style = "margin: auto;",
-                   div(align = "center", style = "display:block; margin: auto;",
-                       
+div(style = "overflow-y: hidden; ",
                        tags$style(paste(".anchorjs-link {display:none}")), #ocultar icono de links
-                       
-                       style = "overflow-y: hidden; 
-  width: 100%; 
-  padding-left: 7%;",
   
   #brechas de género ----
-  tags$a(
-    div(style = estilar_cajas(color_brechas, color_texto_brechas),
-        h3("Brechas de género"),
-        tags$img(src = "www/brechas_genero_casen.png", style = "height: 150px; margin: 20px;"),
-        p("Visualizador que detalla brechas de género sociales, de vivienda e ingresos, para analizar variables en las que las mujeres experimentan peores condiciones de vida, a nivel regional")
-    ),
-    href = "https://bastianoleah.shinyapps.io/casen_brechas_genero/", target = "_blank"),
-  
+      tags$a(
+        div(style = estilar_cajas(color_brechas, color_texto_brechas),
+            h3("Brechas de género"),
+            tags$img(src = "www/brechas_genero_casen.png", style = "height: 150px; margin: 20px;"),
+            p("Visualizador que detalla brechas de género sociales, de vivienda e ingresos, para analizar variables en las que las mujeres experimentan peores condiciones de vida, a nivel regional")
+        ),
+        href = "https://bastianoleah.shinyapps.io/casen_brechas_genero/", target = "_blank"),
   
   #comparador ----
   tags$a(
@@ -167,20 +159,11 @@ fluidPage(title = "Visualizadores de datos", lang = "es",
     div(style = estilar_cajas(color_corrupcion, color_texto_corrupcion), 
         h3("Visualizador de casos de corrupción"),
         # tags$img(src = "relacionador_casen.png", style = "height: 200px;  margin-bottom: 6px;"),
-        p(em("Próximamente..."), style = "opacity: .6; margin-top: 86px; margin-bottom: 72px;"),
+        p(em("Próximamente..."), style = "opacity: .6; margin-top: 72px; margin-bottom: 72px;"),
         p("Catalogo y visualizador de los casos de corrupción más trascendentes del úlltimo tiempo en Chile, para poner en perspectiva los montos, responsables, y sectores políticos asociados"),
     ),
-    href = "https://github.com/bastianolea/corrupcion_chile", target = "_blank"),
-                   )
-  # )#,
-  
-  # fluidRow(
-  #   column(12,
-  #          br(),
-  #          br()
-            )
-          )
-)
+    href = "https://github.com/bastianolea/corrupcion_chile", target = "_blank")
 
+)
 ```
 
