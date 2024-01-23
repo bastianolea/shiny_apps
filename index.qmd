@@ -52,14 +52,18 @@ estilar_cajas <- function(.color_fondo, .color_texto) {
 
 fluidPage(title = "Visualizadores de datos", lang = "es",
           
+          tags$title("Visualizadores de datos en R-Shiny"),
+          
+          tags$style("title {
+                     display: none;
+                     }"),
+          
           tags$style(paste("
              body {
              background-color: ", color_fondo, ";
              }")),
           
           tags$style(paste("
-            
-             
              a {
              color: ", color_enlaces, ";
              }
@@ -92,11 +96,11 @@ fluidPage(title = "Visualizadores de datos", lang = "es",
                    ),
                
                p("Estas apps han sido desarrolladas usando el ",
-                 tags$a("lenguaje de programación estadística y de código abierto R,", target = "_blank", href = "https://github.com/bastianolea/casen_genero_brechas"),
+                 tags$a("lenguaje de programación estadística y de código abierto R,", target = "_blank", href = "https://www.r-project.org/about.html"),
                  "bajo el paradigma de los paquetes",
                  tags$a("{tidyverse} para manipulación, limpieza y procesamiento de datos,", href = "https://www.tidyverse.org", target = "_blank"),
                  "junto al",
-                 tags$a("paquete {shiny} para desarrollar aplicaciones web interactivas.", target = "_blank", href = "https://github.com/bastianolea/casen_genero_brechas")
+                 tags$a("paquete {shiny} para desarrollar aplicaciones web interactivas.", target = "_blank", href = "https://shiny.posit.co")
                ),
                
                p("El código de las aplicaciones está disponible en sus respectivos", 
@@ -106,7 +110,7 @@ fluidPage(title = "Visualizadores de datos", lang = "es",
                p("La idea es que otras personas puedan usar estas aplicaciones libremente, y revisar el código para aportar o bien para aprender a programar en R, contribuyendo así a la comunidad de usuarios de R en Chile."),
                
                p("Puedes encontrar mi información de contacto en",  
-                 tags$a("mi sitio web.", href = "https://bastian.olea.biz", target = "_blank"))
+                 tags$a("mi sitio web.", href = "https://bastian.olea.biz", target = "_blank"), "¡Cualquier duda o comentario es bienvenido!")
             )
           )
 )
@@ -118,13 +122,13 @@ fluidPage(title = "Visualizadores de datos", lang = "es",
 #| output: asis
 
 fluidPage(title = "Visualizadores de datos", lang = "es",
-fluidRow(
-  column(12, align = "center", style = "margin: auto;",
-div(align = "center", style = "display:block; margin: auto;",
-  
-  tags$style(paste(".anchorjs-link {display:none}")), #ocultar icono de links
-
-  style = "overflow-y: hidden; 
+          fluidRow(
+            column(12, align = "center", style = "margin: auto;",
+                   div(align = "center", style = "display:block; margin: auto;",
+                       
+                       tags$style(paste(".anchorjs-link {display:none}")), #ocultar icono de links
+                       
+                       style = "overflow-y: hidden; 
   width: 100%; 
   padding-left: 7%;",
   
@@ -167,15 +171,15 @@ div(align = "center", style = "display:block; margin: auto;",
         p("Catalogo y visualizador de los casos de corrupción más trascendentes del úlltimo tiempo en Chile, para poner en perspectiva los montos, responsables, y sectores políticos asociados"),
     ),
     href = "https://github.com/bastianolea/corrupcion_chile", target = "_blank"),
-)
-# )#,
-
-# fluidRow(
-#   column(12,
-#          br(),
-#          br()
-  )
-)
+                   )
+  # )#,
+  
+  # fluidRow(
+  #   column(12,
+  #          br(),
+  #          br()
+            )
+          )
 )
 
 ```
