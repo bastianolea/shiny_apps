@@ -133,6 +133,16 @@ fluidPage(title = "Visualizadores de datos", lang = "es",
 div(style = "overflow-y: hidden; ",
                        tags$style(paste(".anchorjs-link {display:none}")), #ocultar icono de links
   
+     #delincuencia ----
+  tags$a(
+    div(style = estilar_cajas(color_delincuencia, color_texto_delincuencia), 
+        h3("Delincuencia en Chile"),
+        tags$img(src = "www/delincuencia_chile.png", style = "height: 150px;  margin: 22px;"),
+        p("Visualización de estadísticas oficiales de delincuencia, separadas por comuna y delito, que busca darle contexto y seriedad a un tema país"),
+    ),
+    href = "https://bastianoleah.shinyapps.io/delincuencia_chile/", target = "_blank"),
+  
+  
   #brechas de género ----
       tags$a(
         div(style = estilar_cajas(color_brechas, color_texto_brechas),
@@ -162,15 +172,7 @@ div(style = "overflow-y: hidden; ",
     ),
     href = "https://bastianoleah.shinyapps.io/casen_relacionador/", target = "_blank"),
   
-  #delincuencia ----
-  tags$a(
-    div(style = estilar_cajas(color_delincuencia, color_texto_delincuencia), 
-        h3("Delincuencia en Chile"),
-        tags$img(src = "www/delincuencia_chile.png", style = "height: 150px;  margin: 22px;"),
-        p("Visualización de estadísticas oficiales de delincuencia, separadas por comuna y delito, que busca darle contexto y seriedad a un tema país"),
-    ),
-    href = "https://bastianoleah.shinyapps.io/delincuencia_chile/", target = "_blank"),
-  
+ 
   #corrupción ----
   tags$a(
     div(style = estilar_cajas(color_corrupcion, color_texto_corrupcion), 
