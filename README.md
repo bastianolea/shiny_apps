@@ -14,9 +14,13 @@ Puedes encontrar mi información de contacto en [mi sitio web.](https://bastian
 
 ¡Cualquier duda o comentario es bienvenido!
 
+_Clic en cualquier imagen para ir al visualizador correspondiente:_
+
+[![Delincuencia en Chile](pantallazos/pantallazo_delincuencia_chile.jpg "Delincuencia en Chile")](https://bastianoleah.shinyapps.io/delincuencia_chile/)
+
 
 [![Brechas de género](pantallazos/pantallazo_visualizador_brechas_genero.jpg "Brechas de género")](https://bastianoleah.shinyapps.io/casen_brechas_genero/)
 
-[![Relacionador de variables socioeconómicas Casen](pantallazos/pantallazo_visualizador_comparador_ingresos.jpg "Relacionador de variables socioeconómicas Casen")](https://bastianoleah.shinyapps.io/casen_relacionador/)
+[![Relacionador de variables socioeconómicas Casen](pantallazos/pantallazo_visualizador_relacionador_casen.jpg "Relacionador de variables socioeconómicas Casen")](https://bastianoleah.shinyapps.io/casen_relacionador/)
 
-[![Comparador de ingresos Casen](pantallazos/pantallazo_visualizador_relacionador_casen.jpg "Comparador de ingresos Casen")](https://bastianoleah.shinyapps.io/casen_comparador_ingresos/)
+[![Comparador de ingresos Casen](pantallazos/pantallazo_visualizador_comparador_ingresos.jpg "Comparador de ingresos Casen")](https://bastianoleah.shinyapps.io/casen_comparador_ingresos/)

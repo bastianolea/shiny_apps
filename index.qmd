@@ -20,12 +20,20 @@ color_enlaces = "#ba9bd7" #"#c8b1de"
 
 color_relacionador = "#301519"
 color_texto_relacionador = "#fecea8"
+
 color_comparador = "#2a241d"
 color_texto_comparador = "#cdcdb7"
+
 color_brechas = "#1c0e44"
 color_texto_brechas = "#c1abfb"
-color_corrupcion = "#111111"
+
+color_corrupcion = "#191919"
 color_texto_corrupcion = "#DDDDDD"
+
+color_delincuencia = "#1f272b"
+color_texto_delincuencia = "#cdf2ef"
+
+
 
 estilo_cajas <- "margin: 18px; padding: 16px; padding-top: 1px; 
                  max-height: 400px; max-width: 300px;
@@ -153,6 +161,15 @@ div(style = "overflow-y: hidden; ",
         p("Visualizador que permite relacionar hasta 3 variables socioeconómicas en un gráfico de dispersión por comunas, para analizar la relación entre ellas"),
     ),
     href = "https://bastianoleah.shinyapps.io/casen_relacionador/", target = "_blank"),
+  
+  #delincuencia ----
+  tags$a(
+    div(style = estilar_cajas(color_delincuencia, color_texto_delincuencia), 
+        h3("Delincuencia en Chile"),
+        tags$img(src = "www/delincuencia_chile.png", style = "height: 150px;  margin: 22px;"),
+        p("Visualización de estadísticas oficiales de delincuencia, separadas por comuna y delito, que busca darle contexto y seriedad a un tema país"),
+    ),
+    href = "https://bastianoleah.shinyapps.io/delincuencia_chile/", target = "_blank"),
   
   #corrupción ----
   tags$a(
