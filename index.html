@@ -48,7 +48,7 @@ ul.task-list li input[type="checkbox"] {
 
 <div class="cell-output-display">
 <div class="container-fluid">
-<title>Visualizadores de datos en R-Shiny</title>
+<title>Visualizadores de datos sociales en R-Shiny</title>
 <style>title {
                      display: none;
                      }</style>
@@ -71,33 +71,28 @@ ul.task-list li input[type="checkbox"] {
              color:  #d3c7dd ;
              }
              </style>
+<style>.icono:hover {
+                           filter: brightness(130%);
+                           }</style>
 <div class="row">
-<div class="col-sm-12" style="margin-bottom: 34px; font-size: 120%; 
+<div class="col-sm-12" style="margin-bottom: 0; font-size: 120%; 
                              color:  #d3c7dd ;
                              margin-left: 30px; margin-right: 30px;">
-<h1 style="margin-bottom: 24px; color: #ba9bd7 ;">Visualizadores de datos en R/Shiny</h1>
+<h1 style="margin-bottom: 24px; color: #ba9bd7 ;">Visualizadores de datos sociales en R</h1>
 <div style="padding: 16px; padding-bottom: 1px; background-color: #2d163a; border-radius: 6px; 
                                      margin-left: 30px; margin-right: 30px;
                margin-bottom: 20px; font-size: 82%; outline: 1px solid  #342140 ;">
 <p>
-Portafolio de aplicaciones web de código abierto diseñadas y programadas por
+Portafolio de aplicaciones web interactivas sobre datos sociales, diseñadas y programadas en R por
 <a target="_blank" href="https://bastian.olea.biz">Bastián Olea Herrera,</a>
 magíster en sociología y
 <em>data scientist.</em>
 </p>
 </div>
 <p>
-Estas apps han sido desarrolladas usando el 
-<a target="_blank" href="https://www.r-project.org/about.html">lenguaje de programación estadística y de código abierto R,</a>
-bajo el paradigma de los paquetes
-<a href="https://www.tidyverse.org" target="_blank">{tidyverse} para manipulación, limpieza y procesamiento de datos,</a>
-junto al
-<a target="_blank" href="https://shiny.posit.co">paquete {shiny} para desarrollar aplicaciones web interactivas.</a>
-</p>
-<p>
-El código de las aplicaciones está disponible en sus respectivos
-<a href="https://github.com/bastianolea?tab=repositories" target="_blank">repositorios GitHub</a>
-incluendo todo el proceso de desarrollo, desde la descarga y limpieza de datos hasta el diseño de la interfaz de las apps.
+Este sitio contiene pequeñas aplicaciones web para en la visualización y análisis de datos sociales, con un interés por la facilidad de uso, la exploración y el pensamiento crítico. El objetivo es
+<strong>transparentar los datos sociales de Chile de forma atractiva y sencilla,</strong>
+para que cualquier persona pueda explorar datos que le permitan responder sus inquietudes, o bien, adentrarse en el código y desarrollar sus propios análisis y productos en base a los datos existentes.
 </p>
 <p>La idea es que otras personas puedan usar estas aplicaciones libremente, y revisar el código para aportar o bien para aprender a programar en R, contribuyendo así a la comunidad de usuarios de R en Chile.</p>
 <p>
@@ -113,8 +108,8 @@ Puedes encontrar mi información de contacto en
 <div style="overflow-y: hidden; ">
 <style>.anchorjs-link {display:none}</style>
 <a href="https://bastianoleah.shinyapps.io/delincuencia_chile/" target="_blank">
-<div style="margin: 18px; padding: 16px; padding-top: 1px; 
-                 max-height: 400px; max-width: 300px;
+<div class="icono" style="margin: 18px; padding: 20px; padding-bottom: 1px; padding-top: 1px; 
+                 min-height: 400px; max-width: 380px;
                  border-radius: 8px;
                  font-size: 90%; text-align: center;
                  margin: auto;
@@ -125,12 +120,27 @@ Puedes encontrar mi información de contacto en
           ">
 <h3 class="anchored">Delincuencia en Chile</h3>
 <img src="www/delincuencia_chile.png" style="height: 150px;  margin: 22px;">
-<p>Visualización de estadísticas oficiales de delincuencia, separadas por comuna y delito, que busca darle contexto y seriedad a un tema país</p>
+<div style="text-align: left !important;">
+<p>
+Visualización de
+<strong>estadísticas oficiales de delincuencia,</strong>
+separadas por comuna y delito, para darle contexto y seriedad a un tema país a partir de datos objetivos.
+</p>
+<p>
+Selecciona una comuna y luego uno o varios delitos para obtener un gráfico de líneas que muestra una
+<strong>serie de tiempo</strong>
+de la cantidad de delitos, desde 2010 hasta 2023. Además, puedes visualizar la
+<strong>cantidad de delitos por año</strong>
+en la comuna seleccionada, el promedio de delitos en los gobiernos recientes, y una visualización de los tres
+<strong>delitos más frecuentes</strong>
+en cada comuna.
+</p>
+</div>
 </div>
 </a>
 <a href="https://bastianoleah.shinyapps.io/casen_brechas_genero/" target="_blank">
-<div style="margin: 18px; padding: 16px; padding-top: 1px; 
-                 max-height: 400px; max-width: 300px;
+<div class="icono" style="margin: 18px; padding: 20px; padding-bottom: 1px; padding-top: 1px; 
+                 min-height: 400px; max-width: 380px;
                  border-radius: 8px;
                  font-size: 90%; text-align: center;
                  margin: auto;
@@ -141,12 +151,27 @@ Puedes encontrar mi información de contacto en
           ">
 <h3 class="anchored">Brechas de género</h3>
 <img src="www/brechas_genero_casen.png" style="height: 150px; margin: 20px;">
-<p>Visualizador que detalla brechas de género sociales, de vivienda e ingresos, para analizar variables en las que las mujeres experimentan peores condiciones de vida, a nivel regional</p>
+<div style="text-align: left !important;">
+<p>
+Visualizador que detalla
+<strong>brechas de género en temas sociales, de vivienda e ingresos,</strong>
+para analizar variables en las que las mujeres experimentan peores condiciones de vida, a nivel regional
+</p>
+<p>
+Selecciona una de las variables disponibles para generar un gráfico con todas las regiones del país, donde se detalla el
+<strong>porcentaje de la población femenina y masculina afectada</strong>
+por la variable seleccionada, o si eliges variables de vivienda o familia, el
+<strong>porcentaje de hogares con jefatura femenina o masculina correspondientes.</strong>
+Los puntos del gráfico además se detallan con las
+<strong>brechas</strong>
+o diferencias entre géneros existentes, volviendo explícitas las desigualdades o ausencia de las mismas.
+</p>
+</div>
 </div>
 </a>
 <a href="https://bastianoleah.shinyapps.io/casen_comparador_ingresos/" target="_blank">
-<div style="margin: 18px; padding: 16px; padding-top: 1px; 
-                 max-height: 400px; max-width: 300px;
+<div class="icono" style="margin: 18px; padding: 20px; padding-bottom: 1px; padding-top: 1px; 
+                 min-height: 400px; max-width: 380px;
                  border-radius: 8px;
                  font-size: 90%; text-align: center;
                  margin: auto;
@@ -157,12 +182,23 @@ Puedes encontrar mi información de contacto en
           ">
 <h3 class="anchored">Comparador de ingresos</h3>
 <img src="www/comparador_casen.png" style="height: 150px;  margin: 16px;">
-<p style="">Visualizador que compara distribuciones y promedios de ingresos entre las comunas de Chile, para observar las diferencias en las realidades socioeconómicas</p>
+<div style="text-align: left !important;">
+<p>
+Visualizador que compara
+<strong>distribuciones y promedios de ingresos</strong>
+entre las comunas de Chile, para observar las diferencias en las realidades socioeconómicas del país.
+</p>
+<p>
+Selecciona un grupo de comunas, y elige una variable de ingresos, como ingresos individuales, ingresos por hogar, ingresos per cápita o montos de pensiones/jubilación, para obtener un
+<strong>gráfico de densidad</strong>
+que describe y compara las poblaciones de las comunas, y un gráfico de dispersión que ubica los ingresos de las comunas seleccionadas en comparación a todas las demás comunas del país.
+</p>
+</div>
 </div>
 </a>
 <a href="https://bastianoleah.shinyapps.io/casen_relacionador/" target="_blank">
-<div style="margin: 18px; padding: 16px; padding-top: 1px; 
-                 max-height: 400px; max-width: 300px;
+<div class="icono" style="margin: 18px; padding: 20px; padding-bottom: 1px; padding-top: 1px; 
+                 min-height: 400px; max-width: 380px;
                  border-radius: 8px;
                  font-size: 90%; text-align: center;
                  margin: auto;
@@ -172,13 +208,22 @@ Puedes encontrar mi información de contacto en
           outline: 1px solid  #402A2D ;
           ">
 <h3 class="anchored">Relacionador de variables</h3>
-<img src="www/relacionador_casen.png" style="height: 150px;  margin: 22px;">
-<p>Visualizador que permite relacionar hasta 3 variables socioeconómicas en un gráfico de dispersión por comunas, para analizar la relación entre ellas</p>
+<img src="www/relacionador_casen.png" style="height: 150px; margin: 22px;">
+<div style="text-align: left !important;">
+<p>Visualizador que permite relacionar hasta 3 variables socioeconómicas en un gráfico de dispersión por comunas, para analizar la relación entre ellas.</p>
+<p>
+Este visualizador permite
+<strong>experimentar correlaciones</strong>
+con numerosas variables de temas como
+<strong>ingresos, educación, condiciones de vida, condiciones laborales, y más,</strong>
+dado que permite utilizar libremente cualquiera de ellas como los ejes del gráfico, creando así visualizaciones personalizadas. Por ejemplo, se puede explorar si las comunas con bajo nivel educacional promedio son también las de menores ingresos, si es que las comunas con viviendas de menor calidad y menores ingresos se correlacionan con mayor hacinamiento o no, si las comunas de altos ingresos tienen menores afiliados a Fonasa, y más.
+</p>
+</div>
 </div>
 </a>
 <a href="https://github.com/bastianolea/corrupcion_chile" target="_blank">
-<div style="margin: 18px; padding: 16px; padding-top: 1px; 
-                 max-height: 400px; max-width: 300px;
+<div class="icono" style="margin: 18px; padding: 20px; padding-bottom: 1px; padding-top: 1px; 
+                 min-height: 400px; max-width: 380px;
                  border-radius: 8px;
                  font-size: 90%; text-align: center;
                  margin: auto;
@@ -191,9 +236,47 @@ Puedes encontrar mi información de contacto en
 <p style="opacity: .6; margin-top: 72px; margin-bottom: 72px;">
 <em>Próximamente...</em>
 </p>
+<div style="text-align: left !important;">
 <p>Catalogo y visualizador de los casos de corrupción más trascendentes del úlltimo tiempo en Chile, para poner en perspectiva los montos, responsables, y sectores políticos asociados</p>
 </div>
+</div>
 </a>
+</div>
+</div>
+<div class="cell-output-display">
+<div>
+<div class="row">
+<div class="col-sm-12" style="margin-top: 10px; font-size: 120%; 
+                             color:  #d3c7dd ;
+                             margin-left: 30px; margin-right: 30px;">
+<p>
+Estas apps han sido desarrolladas usando el 
+<a target="_blank" href="https://www.r-project.org/about.html">lenguaje de programación estadística y de código abierto R,</a>
+bajo el paradigma de los paquetes
+<a href="https://www.tidyverse.org" target="_blank">{tidyverse} para manipulación, limpieza y procesamiento de datos,</a>
+junto al
+<a target="_blank" href="https://shiny.posit.co">paquete {shiny} para desarrollar aplicaciones web interactivas.</a>
+</p>
+<p>
+El código de las aplicaciones está disponible en sus respectivos
+<a href="https://github.com/bastianolea?tab=repositories" target="_blank">repositorios GitHub</a>
+incluendo todo el proceso de desarrollo, desde la descarga y limpieza de datos hasta el diseño de la interfaz de las apps.
+</p>
+</div>
+</div>
+<div class="row">
+<div class="col-sm-12" style="margin-top: 40px; font-size: 90%; 
+                             color:  #d3c7dd ;
+                             margin-left: 30px; margin-right: 30px;">
+<em>Bastián Olea Herrera</em>
+<p style="margin-bottom: 0;">
+<a href="mailto:bastianolea@gmail.com">bastianolea@gmail.com</a>
+</p>
+<p>
+<a href="http://bastian.olea.biz">bastian.olea.biz</a>
+</p>
+</div>
+</div>
 </div>
 </div>
 

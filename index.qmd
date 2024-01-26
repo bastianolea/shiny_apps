@@ -35,8 +35,8 @@ color_texto_delincuencia = "#cdf2ef"
 
 
 
-estilo_cajas <- "margin: 18px; padding: 16px; padding-top: 1px; 
-                 max-height: 400px; max-width: 300px;
+estilo_cajas <- "margin: 18px; padding: 20px; padding-bottom: 1px; padding-top: 1px; 
+                 min-height: 400px; max-width: 380px;
                  border-radius: 8px;
                  font-size: 90%; text-align: center;
                  margin: auto;
@@ -58,10 +58,11 @@ estilar_cajas <- function(.color_fondo, .color_texto) {
 #| echo: false
 #| output: asis
 
-fluidPage(title = "Visualizadores de datos", lang = "es",
+fluidPage(title = "Visualizadores de datos sociales en R", lang = "es",
           
-          tags$title("Visualizadores de datos en R-Shiny"),
+          tags$title("Visualizadores de datos sociales en R-Shiny"),
           
+          #css ----
           tags$style("title {
                      display: none;
                      }"),
@@ -87,34 +88,34 @@ fluidPage(title = "Visualizadores de datos", lang = "es",
              }
              ")),
           
+          tags$style(paste(".icono:hover {
+                           filter: brightness(130%);
+                           }")),
+          
+          
           fluidRow(
-            column(12, style = paste("margin-bottom: 34px; font-size: 120%; 
+            column(12, style = paste("margin-bottom: 0; font-size: 120%; 
                              color: ", color_texto, ";
                              margin-left: 30px; margin-right: 30px;"),
                    
-                   h1("Visualizadores de datos en R/Shiny", 
+                   #título ----
+                   h1("Visualizadores de datos sociales en R", 
                       style = paste("margin-bottom: 24px; color:", color_enlaces, ";")),
                    
+                   #subtítulo ----     
                    div(style = paste("padding: 16px; padding-bottom: 1px; background-color: #2d163a; border-radius: 6px; 
                                      margin-left: 30px; margin-right: 30px;
                margin-bottom: 20px; font-size: 82%;", 
                "outline: 1px solid ", colorspace::lighten("#2d163a", 0.05), ";"),
-               p("Portafolio de aplicaciones web de código abierto diseñadas y programadas por",
+               p("Portafolio de aplicaciones web interactivas sobre datos sociales, diseñadas y programadas en R por",
                  tags$a("Bastián Olea Herrera,", target = "_blank", href = "https://bastian.olea.biz"),
                  "magíster en sociología y", em("data scientist."))
                    ),
                
-               p("Estas apps han sido desarrolladas usando el ",
-                 tags$a("lenguaje de programación estadística y de código abierto R,", target = "_blank", href = "https://www.r-project.org/about.html"),
-                 "bajo el paradigma de los paquetes",
-                 tags$a("{tidyverse} para manipulación, limpieza y procesamiento de datos,", href = "https://www.tidyverse.org", target = "_blank"),
-                 "junto al",
-                 tags$a("paquete {shiny} para desarrollar aplicaciones web interactivas.", target = "_blank", href = "https://shiny.posit.co")
-               ),
+               # intro ----
+               p("Este sitio contiene pequeñas aplicaciones web para en la visualización y análisis de datos sociales, con un interés por la facilidad de uso, la exploración y el pensamiento crítico. El objetivo es", strong("transparentar los datos sociales de Chile de forma atractiva y sencilla,"), "para que cualquier persona pueda explorar datos que le permitan responder sus inquietudes, o bien, adentrarse en el código y desarrollar sus propios análisis y productos en base a los datos existentes."),
                
-               p("El código de las aplicaciones está disponible en sus respectivos", 
-                 tags$a("repositorios GitHub", href = "https://github.com/bastianolea?tab=repositories", target = "_blank"),
-                 "incluendo todo el proceso de desarrollo, desde la descarga y limpieza de datos hasta el diseño de la interfaz de las apps."),
+               
                
                p("La idea es que otras personas puedan usar estas aplicaciones libremente, y revisar el código para aportar o bien para aprender a programar en R, contribuyendo así a la comunidad de usuarios de R en Chile."),
                
@@ -126,63 +127,129 @@ fluidPage(title = "Visualizadores de datos", lang = "es",
 ```
 
 
-```{r}
+```{r iconos}
 #| echo: false
 #| output: asis
 
 div(style = "overflow-y: hidden; ",
-                       tags$style(paste(".anchorjs-link {display:none}")), #ocultar icono de links
-  
-     #delincuencia ----
-  tags$a(
-    div(style = estilar_cajas(color_delincuencia, color_texto_delincuencia), 
-        h3("Delincuencia en Chile"),
-        tags$img(src = "www/delincuencia_chile.png", style = "height: 150px;  margin: 22px;"),
-        p("Visualización de estadísticas oficiales de delincuencia, separadas por comuna y delito, que busca darle contexto y seriedad a un tema país"),
-    ),
-    href = "https://bastianoleah.shinyapps.io/delincuencia_chile/", target = "_blank"),
-  
-  
-  #brechas de género ----
-      tags$a(
-        div(style = estilar_cajas(color_brechas, color_texto_brechas),
-            h3("Brechas de género"),
-            tags$img(src = "www/brechas_genero_casen.png", style = "height: 150px; margin: 20px;"),
-            p("Visualizador que detalla brechas de género sociales, de vivienda e ingresos, para analizar variables en las que las mujeres experimentan peores condiciones de vida, a nivel regional")
-        ),
-        href = "https://bastianoleah.shinyapps.io/casen_brechas_genero/", target = "_blank"),
-  
-  #comparador ----
-  tags$a(
-    div(style = estilar_cajas(color_comparador, color_texto_comparador),
-        h3("Comparador de ingresos"),
-        tags$img(src = "www/comparador_casen.png", style = "height: 150px;  margin: 16px;"),
-        p("Visualizador que compara distribuciones y promedios de ingresos entre las comunas de Chile, para observar las diferencias en las realidades socioeconómicas", 
-          style = "")
-    ),
-    href = "https://bastianoleah.shinyapps.io/casen_comparador_ingresos/", target = "_blank"),
-  
-  
-  #relacionador ----
-  tags$a(
-    div(style = estilar_cajas(color_relacionador, color_texto_relacionador), 
-        h3("Relacionador de variables"),
-        tags$img(src = "www/relacionador_casen.png", style = "height: 150px;  margin: 22px;"),
-        p("Visualizador que permite relacionar hasta 3 variables socioeconómicas en un gráfico de dispersión por comunas, para analizar la relación entre ellas"),
-    ),
-    href = "https://bastianoleah.shinyapps.io/casen_relacionador/", target = "_blank"),
-  
- 
-  #corrupción ----
-  tags$a(
-    div(style = estilar_cajas(color_corrupcion, color_texto_corrupcion), 
-        h3("Visualizador de casos de corrupción"),
-        # tags$img(src = "relacionador_casen.png", style = "height: 200px;  margin-bottom: 6px;"),
-        p(em("Próximamente..."), style = "opacity: .6; margin-top: 72px; margin-bottom: 72px;"),
-        p("Catalogo y visualizador de los casos de corrupción más trascendentes del úlltimo tiempo en Chile, para poner en perspectiva los montos, responsables, y sectores políticos asociados"),
-    ),
-    href = "https://github.com/bastianolea/corrupcion_chile", target = "_blank")
+    tags$style(paste(".anchorjs-link {display:none}")), #ocultar icono de links
+    
+    
+    #delincuencia ----
+    tags$a(
+      div(class = "icono",
+          style = estilar_cajas(color_delincuencia, color_texto_delincuencia), 
+          h3("Delincuencia en Chile"),
+          tags$img(src = "www/delincuencia_chile.png", style = "height: 150px;  margin: 22px;"),
+          div(style = "text-align: left !important;",
+              p("Visualización de", strong("estadísticas oficiales de delincuencia,"), "separadas por comuna y delito, para darle contexto y seriedad a un tema país a partir de datos objetivos."),
+              p("Selecciona una comuna y luego uno o varios delitos para obtener un gráfico de líneas que muestra una", strong("serie de tiempo"), "de la cantidad de delitos, desde 2010 hasta 2023. Además, puedes visualizar la", strong("cantidad de delitos por año"), "en la comuna seleccionada, el promedio de delitos en los gobiernos recientes, y una visualización de los tres",  strong("delitos más frecuentes"), "en cada comuna.")
+          )
+      ),
+      href = "https://bastianoleah.shinyapps.io/delincuencia_chile/", target = "_blank"),
+    
+    
+    
+    #brechas de género ----
+    tags$a(
+      div(class = "icono",
+          style = estilar_cajas(color_brechas, color_texto_brechas),
+          
+          h3("Brechas de género"),
+          tags$img(src = "www/brechas_genero_casen.png", style = "height: 150px; margin: 20px;"),
+          div(style = "text-align: left !important;",
+              p("Visualizador que detalla", strong("brechas de género en temas sociales, de vivienda e ingresos,"), "para analizar variables en las que las mujeres experimentan peores condiciones de vida, a nivel regional"),
+              p("Selecciona una de las variables disponibles para generar un gráfico con todas las regiones del país, donde se detalla el", strong("porcentaje de la población femenina y masculina afectada"), "por la variable seleccionada, o si eliges variables de vivienda o familia, el", strong("porcentaje de hogares con jefatura femenina o masculina correspondientes."), "Los puntos del gráfico además se detallan con las", strong("brechas"), "o diferencias entre géneros existentes, volviendo explícitas las desigualdades o ausencia de las mismas.")
+          )
+      ),
+      href = "https://bastianoleah.shinyapps.io/casen_brechas_genero/", target = "_blank"),
+    
+    
+    #comparador ----
+    tags$a(
+      div(class = "icono", style = estilar_cajas(color_comparador, color_texto_comparador),
+          
+          h3("Comparador de ingresos"),
+          tags$img(src = "www/comparador_casen.png", style = "height: 150px;  margin: 16px;"),
+          
+          div(style = "text-align: left !important;",
+              p("Visualizador que compara", strong("distribuciones y promedios de ingresos"), "entre las comunas de Chile, para observar las diferencias en las realidades socioeconómicas del país."),
+              p("Selecciona un grupo de comunas, y elige una variable de ingresos, como ingresos individuales, ingresos por hogar, ingresos per cápita o montos de pensiones/jubilación, para obtener un", strong("gráfico de densidad"), "que describe y compara las poblaciones de las comunas, y un gráfico de dispersión que ubica los ingresos de las comunas seleccionadas en comparación a todas las demás comunas del país.")
+          )
+      ),
+      href = "https://bastianoleah.shinyapps.io/casen_comparador_ingresos/", target = "_blank"),
+    
+    
+    
+    #relacionador ----
+    tags$a(
+      div(class = "icono", style = estilar_cajas(color_relacionador, color_texto_relacionador), 
+          
+          h3("Relacionador de variables"),
+          tags$img(src = "www/relacionador_casen.png", style = "height: 150px; margin: 22px;"),
+          
+          div(style = "text-align: left !important;",
+              p("Visualizador que permite relacionar hasta 3 variables socioeconómicas en un gráfico de dispersión por comunas, para analizar la relación entre ellas."),
+              p("Este visualizador permite", strong("experimentar correlaciones"), "con numerosas variables de temas como", strong("ingresos, educación, condiciones de vida, condiciones laborales, y más,"), "dado que permite utilizar libremente cualquiera de ellas como los ejes del gráfico, creando así visualizaciones personalizadas. Por ejemplo, se puede explorar si las comunas con bajo nivel educacional promedio son también las de menores ingresos, si es que las comunas con viviendas de menor calidad y menores ingresos se correlacionan con mayor hacinamiento o no, si las comunas de altos ingresos tienen menores afiliados a Fonasa, y más.")
+          )
+      ),
+      href = "https://bastianoleah.shinyapps.io/casen_relacionador/", target = "_blank"),
+    
+    
+    
+    #corrupción ----
+    tags$a(
+      div(class = "icono", style = estilar_cajas(color_corrupcion, color_texto_corrupcion), 
+          
+          h3("Visualizador de casos de corrupción"),
+          # tags$img(src = "relacionador_casen.png", style = "height: 200px;  margin-bottom: 6px;"),
+          p(em("Próximamente..."), style = "opacity: .6; margin-top: 72px; margin-bottom: 72px;"),
+          div(style = "text-align: left !important;",
+              p("Catalogo y visualizador de los casos de corrupción más trascendentes del úlltimo tiempo en Chile, para poner en perspectiva los montos, responsables, y sectores políticos asociados")
+          )
+      ),
+      href = "https://github.com/bastianolea/corrupcion_chile", target = "_blank")
+    
+)
+```
 
+```{r}
+#| echo: false
+#| output: asis
+
+#outro ----
+div(
+  fluidRow(
+    column(12, style = paste("margin-top: 10px; font-size: 120%; 
+                             color: ", color_texto, ";
+                             margin-left: 30px; margin-right: 30px;"),
+           p("Estas apps han sido desarrolladas usando el ",
+             tags$a("lenguaje de programación estadística y de código abierto R,", target = "_blank", href = "https://www.r-project.org/about.html"),
+             "bajo el paradigma de los paquetes",
+             tags$a("{tidyverse} para manipulación, limpieza y procesamiento de datos,", href = "https://www.tidyverse.org", target = "_blank"),
+             "junto al",
+             tags$a("paquete {shiny} para desarrollar aplicaciones web interactivas.", target = "_blank", href = "https://shiny.posit.co")
+           ),
+           
+           p("El código de las aplicaciones está disponible en sus respectivos", 
+             tags$a("repositorios GitHub", href = "https://github.com/bastianolea?tab=repositories", target = "_blank"),
+             "incluendo todo el proceso de desarrollo, desde la descarga y limpieza de datos hasta el diseño de la interfaz de las apps."),
+           
+           
+    )
+  ),
+  fluidRow(
+    column(12, style = paste("margin-top: 40px; font-size: 90%; 
+                             color: ", color_texto, ";
+                             margin-left: 30px; margin-right: 30px;"),
+           
+           em("Bastián Olea Herrera"),
+           p(tags$a("bastianolea@gmail.com", href = "mailto:bastianolea@gmail.com"), style = "margin-bottom: 0;"),
+           p(tags$a("bastian.olea.biz", href = "http://bastian.olea.biz"))
+    )
+  )
+  
+  
 )
 ```
 
