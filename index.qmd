@@ -1,5 +1,6 @@
 ---
-title: ""
+title: "Visualizadores de datos sociales en R"
+author: "Bastián Olea Herrera"
 format:
   html:
       link-external-icon: false
@@ -9,12 +10,10 @@ format:
 #| echo: false
 
 library(shiny)
+library(glue)
 library(colorspace)
 
-# color_fondo = "#222222"
-color_fondo = "#140a19"
-# color_fondo = "#c8b1de"
-# color_fondo = "white"
+color_fondo = "#1e0f26"
 color_texto = "#d3c7dd"
 color_enlaces = "#ba9bd7" #"#c8b1de"
 
@@ -33,7 +32,9 @@ color_texto_corrupcion = "#DDDDDD"
 color_delincuencia = "#1f272b"
 color_texto_delincuencia = "#cdf2ef"
 
-
+css <- function(text) {
+  tags$style(glue(text, .open = "{{", .close = "}}"))
+}
 
 estilo_cajas <- "margin: 18px; padding: 20px; padding-bottom: 1px; padding-top: 1px; 
                  min-height: 400px; max-width: 380px;
@@ -58,21 +59,36 @@ estilar_cajas <- function(.color_fondo, .color_texto) {
 #| echo: false
 #| output: asis
 
-fluidPage(title = "Visualizadores de datos sociales en R", lang = "es",
+fluidPage(lang = "es",
           
-          tags$title("Visualizadores de datos sociales en R-Shiny"),
+           #css ----
           
-          #css ----
-          tags$style("title {
-                     display: none;
-                     }"),
-          
-          tags$style(paste("
+          #titulo y autor (entregados por yaml de quarto)
+          css("h1.title, .title.h1 {
+         margin: 24px; margin-top: 24px; margin-left: 30px;  
+         color: {{color_enlaces}};
+          }
+         .quarto-title-meta-heading {
+         display: none; 
+         }
+         .quarto-title-meta-contents {
+         margin-left: 30px; margin-top: 6px; margin-bottom: 12px;
+         color: {{color_texto}};
+         "),
+         
+         #favicon
+         tags$head(
+  tags$link(rel = "shortcut icon", href = "favicon.ico"),
+  tags$link(rel = "apple-touch-icon", sizes = "180x180", href = "apple-touch-icon.png"),
+  tags$link(rel = "icon", type = "image/png", sizes = "32x32", href = "/favicon-32x32.png"),
+  tags$link(rel = "icon", type = "image/png", sizes = "16x16", href = "/favicon-16x16.png")
+),
+         tags$style(paste("
              body {
              background-color: ", color_fondo, ";
              }")),
-          
-          tags$style(paste("
+         
+         tags$style(paste("
              a {
              color: ", color_enlaces, ";
              text-decoration: none !important;
@@ -87,30 +103,30 @@ fluidPage(title = "Visualizadores de datos sociales en R", lang = "es",
              color: ", color_texto, ";
              }
              ")),
-          
-          tags$style(paste(".icono:hover {
+         
+         tags$style(paste(".icono:hover {
                            filter: brightness(130%);
                            }")),
-          
-          
-          fluidRow(
-            column(12, style = paste("margin-bottom: 0; font-size: 120%; 
+         
+         fluidRow(
+           column(12, style = paste("margin-bottom: 0; font-size: 120%; 
                              color: ", color_texto, ";
                              margin-left: 30px; margin-right: 30px;"),
-                   
-                   #título ----
-                   h1("Visualizadores de datos sociales en R", 
-                      style = paste("margin-bottom: 24px; color:", color_enlaces, ";")),
-                   
-                   #subtítulo ----     
-                   div(style = paste("padding: 16px; padding-bottom: 1px; background-color: #2d163a; border-radius: 6px; 
+                  
+                  
+                  #subtítulo ----     
+                  div(style = paste("padding: 16px; padding-bottom: 1px; 
+                                    background-color: ", "#31193f", "; 
+                                    color: ", colorspace::lighten(color_texto, 0.2), "; 
+                                    border-radius: 6px; 
                                      margin-left: 30px; margin-right: 30px;
-               margin-bottom: 20px; font-size: 82%;", 
-               "outline: 1px solid ", colorspace::lighten("#2d163a", 0.05), ";"),
+               margin-bottom: 20px; font-size: 82%;
+               outline: 1px solid ", colorspace::lighten(color_fondo, 0.05), ";"),
+               
                p("Portafolio de aplicaciones web interactivas sobre datos sociales, diseñadas y programadas en R por",
                  tags$a("Bastián Olea Herrera,", target = "_blank", href = "https://bastian.olea.biz"),
                  "magíster en sociología y", em("data scientist."))
-                   ),
+                  ),
                
                # intro ----
                p("Este sitio contiene pequeñas aplicaciones web para en la visualización y análisis de datos sociales, con un interés por la facilidad de uso, la exploración y el pensamiento crítico. El objetivo es", strong("transparentar los datos sociales de Chile de forma atractiva y sencilla,"), "para que cualquier persona pueda explorar datos que le permitan responder sus inquietudes, o bien, adentrarse en el código y desarrollar sus propios análisis y productos en base a los datos existentes."),
@@ -121,8 +137,8 @@ fluidPage(title = "Visualizadores de datos sociales en R", lang = "es",
                
                p("Puedes encontrar mi información de contacto en",  
                  tags$a("mi sitio web.", href = "https://bastian.olea.biz", target = "_blank"), "¡Cualquier duda o comentario es bienvenido!")
-            )
-          )
+           )
+         )
 )
 ```
 
