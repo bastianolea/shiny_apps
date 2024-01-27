@@ -19,20 +19,26 @@ color_enlaces = "#ba9bd7" #"#c8b1de"
 
 color_relacionador = "#301519"
 color_texto_relacionador = "#fecea8"
+color_borde_relacionador = "#402A2D"
 
 color_comparador = "#2a241d"
 color_texto_comparador = "#cdcdb7"
+color_borde_comparador = "#3C3631"
 
-color_brechas = "#1c0e44"
+color_brechas = "#1c0e44"  
 color_texto_brechas = "#c1abfb"
+color_borde_brechas = "#2D274A"
 
 # color_corrupcion = "#191919"
 # color_texto_corrupcion = "#DDDDDD"
 color_corrupcion = "#1d1e1d"
 color_texto_corrupcion = "#8eccad"
-
+color_borde_corrupcion = "#303130"
+ 
 color_delincuencia = "#1f272b"
 color_texto_delincuencia = "#cdf2ef"
+color_borde_delincuencia = "#32393D"
+
 
 css <- function(text) {
   tags$style(glue(text, .open = "{{", .close = "}}"))
@@ -46,11 +52,11 @@ estilo_cajas <- "margin: 18px; padding: 20px; padding-bottom: 1px; padding-top: 
                  margin-bottom: 36px; margin-top: 36px;
                  "
 
-estilar_cajas <- function(.color_fondo, .color_texto) {
+estilar_cajas <- function(.color_fondo, .color_texto, .color_borde) {
   c(estilo_cajas, 
     paste("background-color: ", .color_fondo, "; 
           color: ", .color_texto, " !important;
-          outline: 1px solid ", colorspace::lighten(.color_fondo, 0.1), ";
+          outline: 1px solid ", .color_borde, ";
           ")
     # box-shadow: 0px 10px 50px -20px ",  colorspace::lighten(.color_fondo, 0.1), ";
   )
@@ -156,9 +162,9 @@ div(style = "overflow-y: hidden; ",
     #delincuencia ----
     tags$a(
       div(class = "icono",
-          style = estilar_cajas(color_delincuencia, color_texto_delincuencia), 
+          style = estilar_cajas(color_delincuencia, color_texto_delincuencia, color_borde_delincuencia), 
           h3("Delincuencia en Chile"),
-          tags$img(src = "www/delincuencia_chile.png", style = "height: 150px;  margin: 22px;"),
+          tags$img(src = "www/delincuencia_chile.png", style = "height: 150px;  margin: 22px; margin-top: 8px;"),
           div(style = "text-align: left !important;",
               p("Visualización de", strong("estadísticas oficiales de delincuencia,"), "separadas por comuna y delito, para darle contexto y seriedad a un tema país a partir de datos objetivos."),
               p("Selecciona una comuna y luego uno o varios delitos para obtener un gráfico de líneas que muestra una", strong("serie de tiempo"), "de la cantidad de delitos, desde 2010 hasta 2023. Además, puedes visualizar la", strong("cantidad de delitos por año"), "en la comuna seleccionada, el promedio de delitos en los gobiernos recientes, y una visualización de los tres",  strong("delitos más frecuentes"), "en cada comuna.")
@@ -171,10 +177,10 @@ div(style = "overflow-y: hidden; ",
     
     #relacionador ----
     tags$a(
-      div(class = "icono", style = estilar_cajas(color_relacionador, color_texto_relacionador), 
+      div(class = "icono", style = estilar_cajas(color_relacionador, color_texto_relacionador, color_borde_relacionador), 
           
           h3("Relacionador de variables"),
-          tags$img(src = "www/relacionador_casen.png", style = "height: 150px; margin: 22px;"),
+          tags$img(src = "www/relacionador_casen.png", style = "height: 150px; margin: 22px; margin-top: 15px;"),
           
           div(style = "text-align: left !important;",
               p("Visualizador que permite relacionar hasta 3 variables socioeconómicas en un gráfico de dispersión por comunas, para analizar la relación entre ellas."),
@@ -186,10 +192,10 @@ div(style = "overflow-y: hidden; ",
     
     #corrupción ----
     tags$a(
-      div(class = "icono", style = estilar_cajas(color_corrupcion, color_texto_corrupcion), 
+      div(class = "icono", style = estilar_cajas(color_corrupcion, color_texto_corrupcion, color_borde_corrupcion), 
           
           h3("Visualizador de casos de corrupción"),
-          tags$img(src = "www/corrupcion_chile.png", style = "height: 150px;  margin-bottom: 6px;"),
+          tags$img(src = "www/corrupcion_chile.png", style = "height: 140px;  margin-bottom: 6px; margin-top: 8px;"),
           # p(em("Próximamente..."), style = "opacity: .6; margin-top: 72px; margin-bottom: 72px;"),
           div(style = "text-align: left !important;",
               p("Catalogo y visualizador de los casos de corrupción más trascendentes del último tiempo en Chile, para poner en perspectiva los montos, responsables, y sectores políticos asociados."),
@@ -204,10 +210,10 @@ div(style = "overflow-y: hidden; ",
     #brechas de género ----
     tags$a(
       div(class = "icono",
-          style = estilar_cajas(color_brechas, color_texto_brechas),
+          style = estilar_cajas(color_brechas, color_texto_brechas, color_borde_brechas),
           
           h3("Brechas de género"),
-          tags$img(src = "www/brechas_genero_casen.png", style = "height: 150px; margin: 20px;"),
+          tags$img(src = "www/brechas_genero_casen.png", style = "height: 150px; margin: 17px; margin-top: 8px;"),
           div(style = "text-align: left !important;",
               p("Visualizador que detalla", strong("brechas de género en temas sociales, de vivienda e ingresos,"), "para analizar variables en las que las mujeres experimentan peores condiciones de vida, a nivel regional"),
               p("Selecciona una de las variables disponibles para generar un gráfico con todas las regiones del país, donde se detalla el", strong("porcentaje de la población femenina y masculina afectada"), "por la variable seleccionada, o si eliges variables de vivienda o familia, el", strong("porcentaje de hogares con jefatura femenina o masculina correspondientes."), "Los puntos del gráfico además se detallan con las", strong("brechas"), "o diferencias entre géneros existentes, volviendo explícitas las desigualdades o ausencia de las mismas.")
@@ -218,7 +224,7 @@ div(style = "overflow-y: hidden; ",
     
     #comparador ----
     tags$a(
-      div(class = "icono", style = estilar_cajas(color_comparador, color_texto_comparador),
+      div(class = "icono", style = estilar_cajas(color_comparador, color_texto_comparador, color_borde_comparador),
           
           h3("Comparador de ingresos"),
           tags$img(src = "www/comparador_casen.png", style = "height: 150px;  margin: 16px;"),
