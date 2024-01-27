@@ -18,6 +18,8 @@ _Clic en cualquier imagen para ir al visualizador correspondiente:_
 
 [![Delincuencia en Chile](pantallazos/pantallazo_delincuencia_chile.jpg "Delincuencia en Chile")](https://bastianoleah.shinyapps.io/delincuencia_chile/)
 
+[![Corrupción en Chile](pantallazos/pantallazo_corrupcion_chile.jpg "Corrupción en Chile")](https://bastianoleah.shinyapps.io/corrupcion_chile/)
+
 
 [![Brechas de género](pantallazos/pantallazo_visualizador_brechas_genero.jpg "Brechas de género")](https://bastianoleah.shinyapps.io/casen_brechas_genero/)
 
