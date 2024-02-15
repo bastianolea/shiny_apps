@@ -39,6 +39,10 @@ color_delincuencia = "#1f272b"
 color_texto_delincuencia = "#cdf2ef"
 color_borde_delincuencia = "#32393D"
 
+color_millonarios = "#0e3c67"
+color_texto_millonarios = "#8BD8BD"
+color_borde_millonarios = "#387285"
+
 
 css <- function(text) {
   tags$style(glue(text, .open = "{{", .close = "}}"))
@@ -86,10 +90,10 @@ fluidPage(lang = "es",
          
          #favicon
          tags$head(
-  tags$link(rel = "shortcut icon", href = "favicon.ico"),
+  tags$link(rel = "shortcut icon", href = "www/favicon.ico"),
   tags$link(rel = "apple-touch-icon", sizes = "180x180", href = "apple-touch-icon.png"),
-  tags$link(rel = "icon", type = "image/png", sizes = "32x32", href = "/favicon-32x32.png"),
-  tags$link(rel = "icon", type = "image/png", sizes = "16x16", href = "/favicon-16x16.png")
+  tags$link(rel = "icon", type = "image/png", sizes = "32x32", href = "www/favicon-32x32.png"),
+  tags$link(rel = "icon", type = "image/png", sizes = "16x16", href = "www/favicon-16x16.png")
 ),
          tags$style(paste("
              body {
@@ -203,6 +207,21 @@ div(style = "overflow-y: hidden; ",
           )
       ),
       href = "https://bastianoleah.shinyapps.io/corrupcion_chile/", target = "_blank"),
+    
+    
+    #millonarios ----
+    tags$a(
+      div(class = "icono", style = estilar_cajas(color_millonarios, color_texto_millonarios, color_borde_millonarios), 
+          
+          h3("Millonarios de Chile"),
+          tags$img(src = "www/millonarios_chile.png", style = "height: 140px;  margin-bottom: 18px; margin-top: -8px;"),
+          # p(em("Próximamente..."), style = "opacity: .6; margin-top: 72px; margin-bottom: 72px;"),
+          div(style = "text-align: left !important;",
+              p("Con este visualizador puedes poner en perspectiva las fortunas individuales más grandes del país, para así dimensionar un aspecto clave de la desigualdad en Chile y el mundo."),
+              p("Diversas fuentes de datos permiten recopilar un listado de los empresarios más ricos de Chile. Distintas técnicas estadísticas y de visualización permiten dimensionar las enormes fortunas de estas personas, por ejemplo, comparando con los propios ingresos del usuario, o con los ingresos de toda la población del país.")
+          )
+      ),
+      href = "https://bastianoleah.shinyapps.io/millonarios_chile/", target = "_blank"),
     
     
     
