@@ -20,6 +20,7 @@ _Clic en cualquier imagen para ir al visualizador correspondiente:_
 
 [![Corrupción en Chile](pantallazos/pantallazo_corrupcion_chile.jpg "Corrupción en Chile")](https://bastianoleah.shinyapps.io/corrupcion_chile/)
 
+[![Millonarios de Chile](pantallazos/pantallazo_millonarios_chile.jpg "Millonarios de Chile")](https://bastianoleah.shinyapps.io/millonarios_chile/)
 
 [![Brechas de género](pantallazos/pantallazo_visualizador_brechas_genero.jpg "Brechas de género")](https://bastianoleah.shinyapps.io/casen_brechas_genero/)
 
