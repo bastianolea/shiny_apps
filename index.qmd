@@ -41,7 +41,7 @@ color_borde_delincuencia = "#32393D"
 
 color_millonarios = "#0e3c67"
 color_texto_millonarios = "#8BD8BD"
-color_borde_millonarios = "#387285"
+color_borde_millonarios = "#2a5777"
 
 
 css <- function(text) {
