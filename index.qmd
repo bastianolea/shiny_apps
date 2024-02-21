@@ -43,6 +43,10 @@ color_millonarios = "#0e3c67"
 color_texto_millonarios = "#8BD8BD"
 color_borde_millonarios = "#2a5777"
 
+color_censo = "#365c8d"
+color_texto_censo = "#abbbcf"
+color_borde_censo = "#3f6392"
+
 
 css <- function(text) {
   tags$style(glue(text, .open = "{{", .close = "}}"))
@@ -254,6 +258,21 @@ div(style = "overflow-y: hidden; ",
           )
       ),
       href = "https://bastianoleah.shinyapps.io/casen_comparador_ingresos/", target = "_blank"),
+    
+    
+    
+    #censo proyecciones ----
+    tags$a(
+      div(class = "icono", style = estilar_cajas(color_censo, color_texto_censo, color_borde_censo),
+          
+          h3("Proyecciones de población del Censo"),
+          tags$img(src = "www/censo_proyecciones.png", style = "height: 150px;  margin: 16px;"),
+          
+          div(style = "text-align: left !important;",
+              p("Aplicación web que visualiza los datos oficiales del Instituto Nacional de Estadísticas de Chile sobre proyecciones de población; es decir, estimaciones del crecimiento poblacional hacia el futuro, a partir de los datos obtenidos en los censos oficiales."),
+          )
+      ),
+      href = "https://bastianoleah.shinyapps.io/censo_proyecciones/", target = "_blank"),
     
     
     
