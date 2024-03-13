@@ -47,6 +47,10 @@ color_censo = "#365c8d"
 color_texto_censo = "#abbbcf"
 color_borde_censo = "#3f6392"
 
+color_femicidios = "#262626"
+color_texto_femicidios = "#f7d03a"
+color_borde_femicidios = "#4C4C4C"
+
 
 css <- function(text) {
   tags$style(glue(text, .open = "{{", .close = "}}"))
@@ -211,6 +215,23 @@ div(style = "overflow-y: hidden; ",
           )
       ),
       href = "https://bastianoleah.shinyapps.io/corrupcion_chile/", target = "_blank"),
+    
+    
+    #femicidios ----
+    tags$a(
+      div(class = "icono", style = estilar_cajas(color_femicidios, color_texto_femicidios, color_borde_femicidios), 
+          
+          h3("Femicidios en Chile"),
+          tags$img(src = "www/femicidios_chile.png", style = "height: 140px;  margin-bottom: 20px; margin-top: 16px;"),
+          
+          div(style = "text-align: left !important;",
+              p("Sitio con gráficos y tablas que expresan en cifras los datos de femicidios cometidos en Chile."),
+              p("Estos datos, mantenidos por la Red Chilena contra la Violencia hacia las Mujeres, expresan la brutalidad manifestada de una sociedad patriarcal donde la violencia es una realidad transversal, llevada a su extremo en la agresión y asesinato de mujeres por razones de género.")
+          )
+      ),
+      href = "https://bastianoleah.shinyapps.io/femicidios_chile/", target = "_blank"),
+    
+    
     
     
     #millonarios ----
