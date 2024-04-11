@@ -29,12 +29,10 @@ color_brechas = "#1c0e44"
 color_texto_brechas = "#c1abfb"
 color_borde_brechas = "#2D274A"
 
-# color_corrupcion = "#191919"
-# color_texto_corrupcion = "#DDDDDD"
 color_corrupcion = "#1d1e1d"
 color_texto_corrupcion = "#8eccad"
 color_borde_corrupcion = "#303130"
- 
+
 color_delincuencia = "#1f272b"
 color_texto_delincuencia = "#cdf2ef"
 color_borde_delincuencia = "#32393D"
@@ -51,6 +49,9 @@ color_femicidios = "#262626"
 color_texto_femicidios = "#f7d03a"
 color_borde_femicidios = "#4C4C4C"
 
+color_cep = "#f4f8fe"
+color_texto_cep = "#4c79b6"
+color_borde_cep = "#accdf9"
 
 css <- function(text) {
   tags$style(glue(text, .open = "{{", .close = "}}"))
@@ -81,7 +82,7 @@ estilar_cajas <- function(.color_fondo, .color_texto, .color_borde) {
 
 fluidPage(lang = "es",
           
-           #css ----
+          #css ----
           
           #titulo y autor (entregados por yaml de quarto)
           css("h1.title, .title.h1 {
@@ -98,11 +99,11 @@ fluidPage(lang = "es",
          
          #favicon
          tags$head(
-  tags$link(rel = "shortcut icon", href = "www/favicon.ico"),
-  tags$link(rel = "apple-touch-icon", sizes = "180x180", href = "apple-touch-icon.png"),
-  tags$link(rel = "icon", type = "image/png", sizes = "32x32", href = "www/favicon-32x32.png"),
-  tags$link(rel = "icon", type = "image/png", sizes = "16x16", href = "www/favicon-16x16.png")
-),
+           tags$link(rel = "shortcut icon", href = "www/favicon.ico"),
+           tags$link(rel = "apple-touch-icon", sizes = "180x180", href = "apple-touch-icon.png"),
+           tags$link(rel = "icon", type = "image/png", sizes = "32x32", href = "www/favicon-32x32.png"),
+           tags$link(rel = "icon", type = "image/png", sizes = "16x16", href = "www/favicon-16x16.png")
+         ),
          tags$style(paste("
              body {
              background-color: ", color_fondo, ";
@@ -126,6 +127,10 @@ fluidPage(lang = "es",
          
          tags$style(paste(".icono:hover {
                            filter: brightness(130%);
+                           }")),
+         
+         tags$style(paste(".icono_claro:hover {
+                           filter: brightness(90%) saturate(140%);
                            }")),
          
          fluidRow(
@@ -185,7 +190,7 @@ div(style = "overflow-y: hidden; ",
       href = "https://bastianoleah.shinyapps.io/delincuencia_chile/", target = "_blank"),
     
     
-     
+    
     
     #relacionador ----
     tags$a(
@@ -200,7 +205,7 @@ div(style = "overflow-y: hidden; ",
           )
       ),
       href = "https://bastianoleah.shinyapps.io/casen_relacionador/", target = "_blank"),
-   
+    
     
     #corrupción ----
     tags$a(
@@ -215,6 +220,7 @@ div(style = "overflow-y: hidden; ",
           )
       ),
       href = "https://bastianoleah.shinyapps.io/corrupcion_chile/", target = "_blank"),
+    
     
     
     #femicidios ----
@@ -295,6 +301,20 @@ div(style = "overflow-y: hidden; ",
       ),
       href = "https://bastianoleah.shinyapps.io/censo_proyecciones/", target = "_blank"),
     
+    
+    #cep ----
+    tags$a(
+      div(class = "icono_claro", style = estilar_cajas(color_cep, color_texto_cep, color_borde_cep), 
+          
+          h3("Graficador encuesta CEP"),
+          tags$img(src = "www/graficador_cep.png", style = "height: 140px;  margin-bottom: 20px; margin-top: 16px;"),
+          
+          div(style = "text-align: left !important;",
+              p("Aplicación web que permite visualizar gráficos de los resultados de las encuestas del Centro de Estudios Públicos."),
+              p("Además, permite desagregar resultados en base a categorías sociodemográficas, filtrar grupos, configurar los gráficos y descargar los datos.")
+          )
+      ),
+      href = "https://www.encuestacep.cl", target = "_blank"),
     
     
 )
