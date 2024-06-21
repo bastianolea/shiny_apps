@@ -167,7 +167,10 @@ fluidPage(lang = "es",
                p("La idea es que otras personas puedan usar estas aplicaciones libremente, y revisar el código para aportar o bien para aprender a programar en R, contribuyendo así a la comunidad de usuarios de R en Chile."),
                
                p("Puedes encontrar mi información de contacto en",  
-                 tags$a("mi sitio web.", href = "https://bastian.olea.biz", target = "_blank"), "¡Cualquier duda o comentario es bienvenido!")
+                 tags$a("mi sitio web.", href = "https://bastian.olea.biz", target = "_blank"), "¡Cualquier duda o comentario es bienvenido!"),
+               
+                 p("Todo el código de estas aplicaciones y otros proyectos de ciencia de datos disponible en", 
+             tags$a("mi GitHub.", href = "https://github.com/bastianolea?tab=repositories", target = "_blank"))
            )
          )
 )
