@@ -182,20 +182,6 @@ div(style = "overflow-y: hidden; ",
     tags$style(paste(".anchorjs-link {display:none}")), #ocultar icono de links
     
     
-    #delincuencia ----
-    tags$a(
-      div(class = "icono",
-          style = estilar_cajas(color_delincuencia, color_texto_delincuencia, color_borde_delincuencia), 
-          h3("Delincuencia en Chile"),
-          tags$img(src = "www/delincuencia_chile.png", style = "height: 150px;  margin: 22px; margin-top: 8px;"),
-          div(style = "text-align: left !important;",
-              p("Visualización de", strong("estadísticas oficiales de delincuencia,"), "separadas por comuna y delito, para darle contexto y seriedad a un tema país a partir de datos objetivos."),
-              p("Selecciona una comuna y luego uno o varios delitos para obtener un gráfico de líneas que muestra una", strong("serie de tiempo"), "de la cantidad de delitos, desde 2010 hasta 2023. Además, puedes visualizar la", strong("cantidad de delitos por año"), "en la comuna seleccionada, el promedio de delitos en los gobiernos recientes, y una visualización de los tres",  strong("delitos más frecuentes"), "en cada comuna.")
-          )
-      ),
-      href = "https://bastianoleah.shinyapps.io/delincuencia_chile/", target = "_blank"),
-    
-    
     # mapas ----
     tags$a(
       div(class = "icono",
@@ -209,6 +195,21 @@ div(style = "overflow-y: hidden; ",
       ),
       href = "https://bastianoleah.shinyapps.io/comparador_mapas_chile/", target = "_blank"),
     
+    
+    
+    
+    #delincuencia ----
+    tags$a(
+      div(class = "icono",
+          style = estilar_cajas(color_delincuencia, color_texto_delincuencia, color_borde_delincuencia), 
+          h3("Delincuencia en Chile"),
+          tags$img(src = "www/delincuencia_chile.png", style = "height: 150px;  margin: 22px; margin-top: 8px;"),
+          div(style = "text-align: left !important;",
+              p("Visualización de", strong("estadísticas oficiales de delincuencia,"), "separadas por comuna y delito, para darle contexto y seriedad a un tema país a partir de datos objetivos."),
+              p("Selecciona una comuna y luego uno o varios delitos para obtener un gráfico de líneas que muestra una", strong("serie de tiempo"), "de la cantidad de delitos, desde 2010 hasta 2023. Además, puedes visualizar la", strong("cantidad de delitos por año"), "en la comuna seleccionada, el promedio de delitos en los gobiernos recientes, y una visualización de los tres",  strong("delitos más frecuentes"), "en cada comuna.")
+          )
+      ),
+      href = "https://bastianoleah.shinyapps.io/delincuencia_chile/", target = "_blank"),
     
     
     
