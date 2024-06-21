@@ -16,6 +16,8 @@ Puedes encontrar mi información de contacto en [mi sitio web.](https://bastian.
 
 _Clic en cualquier imagen para ir al visualizador correspondiente:_
 
+[![Comparador de mapas comunales](pantallazos/pantallazo_comparador_mapas_chile.jpg "Comparador de mapas comunales")](https://bastianoleah.shinyapps.io/comparador_mapas_chile/)
+
 [![Delincuencia en Chile](pantallazos/pantallazo_delincuencia_chile.jpg "Delincuencia en Chile")](https://bastianoleah.shinyapps.io/delincuencia_chile/)
 
 [![Corrupción en Chile](pantallazos/pantallazo_corrupcion_chile.jpg "Corrupción en Chile")](https://bastianoleah.shinyapps.io/corrupcion_chile/)

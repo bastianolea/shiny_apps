@@ -6,8 +6,9 @@ format:
       link-external-icon: false
 ---
 
-```{r}
+```{r setup}
 #| echo: false
+#| warning: false
 
 library(shiny)
 library(glue)
@@ -53,6 +54,10 @@ color_cep = "#f4f8fe"
 color_texto_cep = "#4c79b6"
 color_borde_cep = "#accdf9"
 
+color_comparador_mapas = "#181818"
+color_borde_comparador_mapas = "#303030"
+color_texto_comparador_mapas = "#2AA198"
+
 css <- function(text) {
   tags$style(glue(text, .open = "{{", .close = "}}"))
 }
@@ -76,8 +81,9 @@ estilar_cajas <- function(.color_fondo, .color_texto, .color_borde) {
 }
 ```
 
-```{r}
+```{r header}
 #| echo: false
+#| warning: false
 #| output: asis
 
 fluidPage(lang = "es",
@@ -188,6 +194,20 @@ div(style = "overflow-y: hidden; ",
           )
       ),
       href = "https://bastianoleah.shinyapps.io/delincuencia_chile/", target = "_blank"),
+    
+    
+    # mapas ----
+    tags$a(
+      div(class = "icono",
+          style = estilar_cajas(color_comparador_mapas, color_texto_comparador_mapas, color_borde_comparador_mapas), 
+          h3("Comparador de mapas comunales"),
+          tags$img(src = "www/comparador_mapas_chile.png", style = "height: 150px;  margin: 22px; margin-top: 6px;"),
+          div(style = "text-align: left !important;",
+              p("Aplicación que reúne más de", strong("170 variables urbanísticas, sociales y económicas,"), "de nivel comunal, para todas las comunas del país, que permite al usuario elegir dos variables simultáneamente para compararlas visualmente por medio de", strong("dos mapas regionales.")),
+              p("El visualizador entrega la posibilidad de poner a prueba relaciones entre variables tan distintas como áreas verdes y puntajes de pruebas de selección universitaria, nivel de ingresos y tasa de delitos, participación electoral y situación de las viviendas, etc., dejando al usuario la tarea de explicar los fenómenos que pueden surgir."),
+          )
+      ),
+      href = "https://bastianoleah.shinyapps.io/comparador_mapas_chile/", target = "_blank"),
     
     
     
@@ -320,7 +340,7 @@ div(style = "overflow-y: hidden; ",
 )
 ```
 
-```{r}
+```{r footer}
 #| echo: false
 #| output: asis
 
