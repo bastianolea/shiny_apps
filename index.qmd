@@ -55,8 +55,12 @@ color_texto_cep = "#4c79b6"
 color_borde_cep = "#accdf9"
 
 color_comparador_mapas = "#181818"
-color_borde_comparador_mapas = "#303030"
+color_borde_comparador_mapas = "#252525"
 color_texto_comparador_mapas = "#2AA198"
+
+color_economia = "#1C1833"
+color_texto_economia = "#CCBCFF"
+color_borde_economia = "#262145"
 
 css <- function(text) {
   tags$style(glue(text, .open = "{{", .close = "}}"))
@@ -183,6 +187,21 @@ fluidPage(lang = "es",
 
 div(style = "overflow-y: hidden; ",
     tags$style(paste(".anchorjs-link {display:none}")), #ocultar icono de links
+    
+    
+    # economía ----
+    tags$a(
+      div(class = "icono",
+          style = estilar_cajas(color_economia, color_texto_economia, color_borde_economia), 
+          h3("Indicadores económicos Chile"),
+          tags$img(src = "www/economia_chile.png", style = "height: 150px; margin: 22px; margin-bottom: -8px; margin-top: 6px;"),
+          div(style = "text-align: left !important;",
+              p("Tablero que presenta ", strong("+8 indicadores económicos del Banco Central de Chile,"), "cuya presentación resumida permite analizar la situación económica del país."),
+              p("Los datos de esta aplicación son obtenidos de forma automática dos veces al día, garantizando que se encuentren actualizados. Además, la arquitectura de esta app facilita el proceso de añadir nuevos indicadores.")
+          )
+      ),
+      href = "https://bastianoleah.shinyapps.io/economia_chile/", target = "_blank"),
+    
     
     
     # mapas ----
