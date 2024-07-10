@@ -4,6 +4,9 @@ author: "Bastián Olea Herrera"
 format:
   html:
       link-external-icon: false
+include-in-header:
+  - text: |
+     <link rel = "shortcut icon" href = "apple-touch-icon.png" />
 ---
 
 ```{r setup}
