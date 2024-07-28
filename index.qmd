@@ -3,10 +3,7 @@ title: "Visualizadores de datos sociales en R"
 author: "Bastián Olea Herrera"
 format:
   html:
-      link-external-icon: false
-include-in-header:
-  - text: |
-     <link rel = "shortcut icon" href = "apple-touch-icon.png" />
+    link-external-icon: false
 ---
 
 ```{r setup}
@@ -16,115 +13,118 @@ include-in-header:
 library(shiny)
 library(glue)
 library(colorspace)
+library(htmltools)
+
+source("funciones.R")
+```
+
+```{r colores}
+#| echo: false
+#| warning: false
+
+
 
 color_fondo = "#1e0f26"
 color_texto = "#d3c7dd"
 color_enlaces = "#ba9bd7" #"#c8b1de"
 
-color_relacionador = "#301519"
-color_texto_relacionador = "#fecea8"
-color_borde_relacionador = "#402A2D"
+colores <- list()
 
-color_comparador = "#2a241d"
-color_texto_comparador = "#cdcdb7"
-color_borde_comparador = "#3C3631"
+colores$relacionador <- list(
+  fondo = "#301519",
+  texto = "#fecea8",
+  borde = "#402A2D")
 
-color_brechas = "#1c0e44"  
-color_texto_brechas = "#c1abfb"
-color_borde_brechas = "#2D274A"
+colores$comparador <- list(
+  fondo = "#2a241d",
+  texto = "#cdcdb7",
+  borde = "#3C3631")
 
-color_corrupcion = "#1d1e1d"
-color_texto_corrupcion = "#8eccad"
-color_borde_corrupcion = "#303130"
+colores$brechas <- list(
+  fondo = "#1c0e44",
+  texto = "#c1abfb",
+  borde = "#2D274A")
 
-color_delincuencia = "#1f272b"
-color_texto_delincuencia = "#cdf2ef"
-color_borde_delincuencia = "#32393D"
+colores$corrupcion <- list(
+  fondo = "#1d1e1d",
+  texto = "#8eccad",
+  borde = "#303130")
 
-color_millonarios = "#0e3c67"
-color_texto_millonarios = "#8BD8BD"
-color_borde_millonarios = "#2a5777"
+colores$delincuencia <- list(
+  fondo = "#1f272b",
+  texto = "#cdf2ef",
+  borde = "#32393D")
 
-color_censo = "#365c8d"
-color_texto_censo = "#abbbcf"
-color_borde_censo = "#3f6392"
+colores$millonarios <- list(
+  fondo = "#0e3c67",
+  texto = "#8BD8BD",
+  borde = "#2a5777")
 
-color_femicidios = "#262626"
-color_texto_femicidios = "#f7d03a"
-color_borde_femicidios = "#4C4C4C"
+colores$censo <- list(
+  fondo = "#365c8d",
+  texto = "#abbbcf",
+  borde = "#3f6392")
 
-color_cep = "#f4f8fe"
-color_texto_cep = "#4c79b6"
-color_borde_cep = "#accdf9"
+colores$femicidios <- list(
+  fondo = "#262626",
+  texto = "#f7d03a",
+  borde = "#4C4C4C")
 
-color_comparador_mapas = "#181818"
-color_borde_comparador_mapas = "#252525"
-color_texto_comparador_mapas = "#2AA198"
+colores$cep <- list(
+  fondo = "#f4f8fe",
+  texto = "#4c79b6",
+  # borde = "#accdf9")
+  borde = "#BBBBBB")
 
-color_economia = "#1C1833"
-color_texto_economia = "#CCBCFF"
-color_borde_economia = "#262145"
+colores$comparador_mapas <- list(
+  fondo = "#181818",
+  texto = "#2AA198",
+  borde = "#252525")
 
-css <- function(text) {
-  tags$style(glue(text, .open = "{{", .close = "}}"))
-}
-
-estilo_cajas <- "margin: 18px; padding: 20px; padding-bottom: 1px; padding-top: 1px; 
-                 min-height: 400px; max-width: 380px;
-                 border-radius: 8px;
-                 font-size: 90%; text-align: center;
-                 margin: auto;
-                 margin-bottom: 36px; margin-top: 36px;
-                 "
-
-estilar_cajas <- function(.color_fondo, .color_texto, .color_borde) {
-  c(estilo_cajas, 
-    paste("background-color: ", .color_fondo, "; 
-          color: ", .color_texto, " !important;
-          outline: 1px solid ", .color_borde, ";
-          ")
-    # box-shadow: 0px 10px 50px -20px ",  colorspace::lighten(.color_fondo, 0.1), ";
-  )
-}
+colores$economia <- list(
+  fondo = "#1C1833",
+  texto = "#CCBCFF",
+  borde = "#262145")
 ```
 
-```{r header}
+
+```{r css}
 #| echo: false
 #| warning: false
 #| output: asis
 
 fluidPage(lang = "es",
           
-          #css ----
-          
           #titulo y autor (entregados por yaml de quarto)
-          css("h1.title, .title.h1 {
-         margin: 24px; margin-top: 24px; margin-left: 30px;  
-         color: {{color_enlaces}};
-          }
-         .quarto-title-meta-heading {
-         display: none; 
-         }
-         .quarto-title-meta-contents {
-         margin-left: 30px; margin-top: 6px; margin-bottom: 12px;
-         color: {{color_texto}};
-         "),
-         
-         #favicon
-         tags$head(
-           tags$link(rel = "shortcut icon", href = "www/favicon.ico"),
-           tags$link(rel = "apple-touch-icon", sizes = "180x180", href = "apple-touch-icon.png"),
-           tags$link(rel = "icon", type = "image/png", sizes = "32x32", href = "www/favicon-32x32.png"),
-           tags$link(rel = "icon", type = "image/png", sizes = "16x16", href = "www/favicon-16x16.png")
-         ),
-         tags$style(paste("
+          tag_css("h1.title, .title.h1 {
+                  margin: 24px; margin-top: 24px; margin-left: 30px;  
+                  color: {{color_enlaces}};
+                  }
+                  
+                  .quarto-title-meta-heading {
+                  display: none; 
+                  }
+                  
+                  .quarto-title-meta-contents {
+                  margin-left: 30px; margin-top: 6px; margin-bottom: 12px;
+                  color: {{color_texto}};
+                  "),
+          
+          #favicon
+          tags$head(
+            tags$link(rel = "shortcut icon", href = "www/favicon.ico"),
+            tags$link(rel = "apple-touch-icon", sizes = "180x180", href = "apple-touch-icon.png"),
+            tags$link(rel = "icon", type = "image/png", sizes = "32x32", href = "www/favicon-32x32.png"),
+            tags$link(rel = "icon", type = "image/png", sizes = "16x16", href = "www/favicon-16x16.png")
+          ),
+          
+          tag_css("
              body {
-             background-color: ", color_fondo, ";
-             }")),
-         
-         tags$style(paste("
+             background-color: {{color_fondo}};
+             }
+             
              a {
-             color: ", color_enlaces, ";
+             color: {{color_enlaces}};
              text-decoration: none !important;
              }
            
@@ -133,58 +133,61 @@ fluidPage(lang = "es",
              text-decoration: none !important;
              }
              
-             h1 {
-             color: ", color_texto, ";
+             h1{
+             color: {{color_texto}};
              }
-             ")),
-         
-         tags$style(paste(".icono:hover {
-                           filter: brightness(130%);
-                           }")),
-         
-         tags$style(paste(".icono_claro:hover {
-                           filter: brightness(90%) saturate(140%);
-                           }")),
-         
-         fluidRow(
-           column(12, style = paste("margin-bottom: 0; font-size: 120%; 
-                             color: ", color_texto, ";
-                             margin-left: 30px; margin-right: 30px;"),
-                  
-                  
-                  #subtítulo ----     
-                  div(style = paste("padding: 16px; padding-bottom: 1px; 
-                                    background-color: ", "#31193f", "; 
-                                    color: ", colorspace::lighten(color_texto, 0.2), "; 
-                                    border-radius: 6px; 
-                                     margin-left: 30px; margin-right: 30px;
-               margin-bottom: 20px; font-size: 82%;
-               outline: 1px solid ", colorspace::lighten(color_fondo, 0.05), ";"),
-               
-               p("Portafolio de aplicaciones web interactivas sobre datos sociales, diseñadas y programadas en R por",
-                 tags$a("Bastián Olea Herrera,", target = "_blank", href = "https://bastian.olea.biz"),
-                 "magíster en sociología y", em("data scientist."))
-                  ),
-               
-               # intro ----
-               p("Este sitio contiene pequeñas aplicaciones web para en la visualización y análisis de datos sociales, con un interés por la facilidad de uso, la exploración y el pensamiento crítico. El objetivo es", strong("transparentar los datos sociales de Chile de forma atractiva y sencilla,"), "para que cualquier persona pueda explorar datos que le permitan responder sus inquietudes, o bien, adentrarse en el código y desarrollar sus propios análisis y productos en base a los datos existentes."),
-               
-               
-               
-               p("La idea es que otras personas puedan usar estas aplicaciones libremente, y revisar el código para aportar o bien para aprender a programar en R, contribuyendo así a la comunidad de usuarios de R en Chile."),
-               
-               p("Puedes encontrar mi información de contacto en",  
-                 tags$a("mi sitio web.", href = "https://bastian.olea.biz", target = "_blank"), "¡Cualquier duda o comentario es bienvenido!"),
-               
-                 p("Todo el código de estas aplicaciones y otros proyectos de ciencia de datos disponible en", 
-             tags$a("mi GitHub.", href = "https://github.com/bastianolea?tab=repositories", target = "_blank"))
-           )
-         )
+             
+             .icono:hover {
+             filter: brightness(130%);
+             }
+             
+             .icono_claro:hover {
+             filter: brightness(90%) saturate(140%);
+             }"
+          )
 )
 ```
 
 
-```{r iconos}
+```{r header}
+#| echo: false
+#| warning: false
+#| output: asis
+
+fluidPage(lang = "es",
+          fluidRow(
+            column(12, 
+                   style = css(font_size = "120%", color = color_texto, 
+                               margin_left = "30px", margin_right = "30px", margin_bottom = "0px"),
+                   
+                   #subtítulo ----     
+                   div(
+                     style = css(padding = "16px", padding_bottom = "1px", 
+                                 background_color = "#31193f",
+                                 color = colorspace::lighten(color_texto, 0.2),
+                                 border_radius = "6px",
+                                 margin_left = "30px", margin_right = "30px",
+                                 margin_bottom = "20px", font_size = "82%",
+                                 outline = paste("1px solid ", colorspace::lighten(color_fondo, 0.05))),
+                     
+                     markdown("Portafolio de aplicaciones web interactivas sobre datos sociales, diseñadas y programadas en R por [Bastián Olea Herrera](https://bastian.olea.biz), magíster en sociología y _data scientist._"),
+                   ),
+                   
+                   # intro ----
+                   p("Este sitio contiene pequeñas aplicaciones web para en la visualización y análisis de datos sociales, con un interés por la facilidad de uso, la exploración y el pensamiento crítico. El objetivo es", strong("transparentar los datos sociales de Chile de forma atractiva y sencilla,"), "para que cualquier persona pueda explorar datos que le permitan responder sus inquietudes, o bien, adentrarse en el código y desarrollar sus propios análisis y productos en base a los datos existentes."),
+                   
+                   p("La idea es que otras personas puedan usar estas aplicaciones libremente, y revisar el código para aportar o bien para aprender a programar en R, contribuyendo así a la comunidad de usuarios de R en Chile."),
+                   
+                   markdown("Puedes encontrar mi información de contacto en [mi sitio web](https://bastian.olea.biz). ¡Cualquier duda o comentario es bienvenido!"),
+                   
+                   markdown("Todo el código de estas aplicaciones y otros proyectos de ciencia de datos disponible en [mi GitHub.](https://github.com/bastianolea?tab=repositories)")
+            )
+          )
+)
+```
+
+
+```{r apps}
 #| echo: false
 #| output: asis
 
@@ -193,40 +196,33 @@ div(style = "overflow-y: hidden; ",
     
     
     # economía ----
-    tags$a(
-      div(class = "icono",
-          style = estilar_cajas(color_economia, color_texto_economia, color_borde_economia), 
-          h3("Indicadores económicos Chile"),
-          tags$img(src = "www/economia_chile.png", style = "height: 150px; margin: 22px; margin-bottom: -8px; margin-top: 6px;"),
-          div(style = "text-align: left !important;",
-              p("Tablero que presenta ", strong("+8 indicadores económicos del Banco Central de Chile,"), "cuya presentación resumida permite analizar la situación económica del país."),
-              p("Los datos de esta aplicación son obtenidos de forma automática dos veces al día, garantizando que se encuentren actualizados. Además, la arquitectura de esta app facilita el proceso de añadir nuevos indicadores.")
-          )
-      ),
-      href = "https://bastianoleah.shinyapps.io/economia_chile/", target = "_blank"),
+    caja_app(titulo = "Indicadores económicos Chile",
+             texto = div(p("Tablero que presenta ", strong("+8 indicadores económicos del Banco Central de Chile,"), "cuya presentación resumida permite analizar la situación económica del país."),
+                         p("Los datos de esta aplicación son obtenidos de forma automática dos veces al día, garantizando que se encuentren actualizados. Además, la arquitectura de esta app facilita el proceso de añadir nuevos indicadores.")),
+             enlace = "https://bastianoleah.shinyapps.io/economia_chile/",
+             colores = colores$economia,
+             imagen = "www/economia_chile.png", estilo_imagen = "height: 150px; margin: 22px; margin-bottom: -8px; margin-top: 6px;"
+    ),
+    
     
     
     
     # mapas ----
-    tags$a(
-      div(class = "icono",
-          style = estilar_cajas(color_comparador_mapas, color_texto_comparador_mapas, color_borde_comparador_mapas), 
-          h3("Comparador de mapas comunales"),
-          tags$img(src = "www/comparador_mapas_chile.png", style = "height: 150px;  margin: 22px; margin-top: 6px;"),
-          div(style = "text-align: left !important;",
-              p("Aplicación que reúne más de", strong("170 variables urbanísticas, sociales y económicas,"), "de nivel comunal, para todas las comunas del país, que permite al usuario elegir dos variables simultáneamente para compararlas visualmente por medio de", strong("dos mapas regionales.")),
-              p("El visualizador entrega la posibilidad de poner a prueba relaciones entre variables tan distintas como áreas verdes y puntajes de pruebas de selección universitaria, nivel de ingresos y tasa de delitos, participación electoral y situación de las viviendas, etc., dejando al usuario la tarea de explicar los fenómenos que pueden surgir."),
-          )
-      ),
-      href = "https://bastianoleah.shinyapps.io/comparador_mapas_chile/", target = "_blank"),
-    
+    caja_app(titulo = "Comparador de mapas comunales",
+             texto = div(
+               p("Aplicación que reúne más de", strong("170 variables urbanísticas, sociales y económicas,"), "de nivel comunal, para todas las comunas del país, que permite al usuario elegir dos variables simultáneamente para compararlas visualmente por medio de", strong("dos mapas regionales.")),
+               p("El visualizador entrega la posibilidad de poner a prueba relaciones entre variables tan distintas como áreas verdes y puntajes de pruebas de selección universitaria, nivel de ingresos y tasa de delitos, participación electoral y situación de las viviendas, etc., dejando al usuario la tarea de explicar los fenómenos que pueden surgir.")),
+             enlace = "https://bastianoleah.shinyapps.io/comparador_mapas_chile/",
+             colores = colores$comparador_mapas,
+             imagen = "www/comparador_mapas_chile.png", estilo_imagen = "height: 150px; margin: 22px; margin-top: 6px;"
+    ),
     
     
     
     #delincuencia ----
     tags$a(
       div(class = "icono",
-          style = estilar_cajas(color_delincuencia, color_texto_delincuencia, color_borde_delincuencia), 
+          style = estilar_cajas(colores$delincuencia), 
           h3("Delincuencia en Chile"),
           tags$img(src = "www/delincuencia_chile.png", style = "height: 150px;  margin: 22px; margin-top: 8px;"),
           div(style = "text-align: left !important;",
@@ -240,7 +236,7 @@ div(style = "overflow-y: hidden; ",
     
     #relacionador ----
     tags$a(
-      div(class = "icono", style = estilar_cajas(color_relacionador, color_texto_relacionador, color_borde_relacionador), 
+      div(class = "icono", style = estilar_cajas(colores$relacionador), 
           
           h3("Relacionador de variables"),
           tags$img(src = "www/relacionador_casen.png", style = "height: 150px; margin: 22px; margin-top: 15px;"),
@@ -255,7 +251,7 @@ div(style = "overflow-y: hidden; ",
     
     #corrupción ----
     tags$a(
-      div(class = "icono", style = estilar_cajas(color_corrupcion, color_texto_corrupcion, color_borde_corrupcion), 
+      div(class = "icono", style = estilar_cajas(colores$corrupcion), 
           
           h3("Visualizador de casos de corrupción"),
           tags$img(src = "www/corrupcion_chile.png", style = "height: 140px;  margin-bottom: 6px; margin-top: 8px;"),
@@ -271,7 +267,7 @@ div(style = "overflow-y: hidden; ",
     
     #femicidios ----
     tags$a(
-      div(class = "icono", style = estilar_cajas(color_femicidios, color_texto_femicidios, color_borde_femicidios), 
+      div(class = "icono", style = estilar_cajas(colores$femicidios), 
           
           h3("Femicidios en Chile"),
           tags$img(src = "www/femicidios_chile.png", style = "height: 140px;  margin-bottom: 20px; margin-top: 16px;"),
@@ -288,7 +284,7 @@ div(style = "overflow-y: hidden; ",
     
     #millonarios ----
     tags$a(
-      div(class = "icono", style = estilar_cajas(color_millonarios, color_texto_millonarios, color_borde_millonarios), 
+      div(class = "icono", style = estilar_cajas(colores$millonarios), 
           
           h3("Millonarios de Chile"),
           tags$img(src = "www/millonarios_chile.png", style = "height: 140px;  margin-bottom: 18px; margin-top: -8px;"),
@@ -306,7 +302,7 @@ div(style = "overflow-y: hidden; ",
     #brechas de género ----
     tags$a(
       div(class = "icono",
-          style = estilar_cajas(color_brechas, color_texto_brechas, color_borde_brechas),
+          style = estilar_cajas(colores$brechas),
           
           h3("Brechas de género"),
           tags$img(src = "www/brechas_genero_casen.png", style = "height: 150px; margin: 17px; margin-top: 8px;"),
@@ -320,7 +316,7 @@ div(style = "overflow-y: hidden; ",
     
     #comparador ----
     tags$a(
-      div(class = "icono", style = estilar_cajas(color_comparador, color_texto_comparador, color_borde_comparador),
+      div(class = "icono", style = estilar_cajas(colores$comparador),
           
           h3("Comparador de ingresos"),
           tags$img(src = "www/comparador_casen.png", style = "height: 150px;  margin: 16px;"),
@@ -336,7 +332,7 @@ div(style = "overflow-y: hidden; ",
     
     #censo proyecciones ----
     tags$a(
-      div(class = "icono", style = estilar_cajas(color_censo, color_texto_censo, color_borde_censo),
+      div(class = "icono", style = estilar_cajas(colores$censo),
           
           h3("Proyecciones de población del Censo"),
           tags$img(src = "www/censo_proyecciones.png", style = "height: 150px;  margin: 16px;"),
@@ -349,22 +345,52 @@ div(style = "overflow-y: hidden; ",
     
     
     #cep ----
-    tags$a(
-      div(class = "icono_claro", style = estilar_cajas(color_cep, color_texto_cep, color_borde_cep), 
-          
-          h3("Graficador encuesta CEP"),
-          tags$img(src = "www/graficador_cep.png", style = "height: 140px;  margin-bottom: 20px; margin-top: 16px;"),
-          
-          div(style = "text-align: left !important;",
-              p("Aplicación web que permite visualizar gráficos de los resultados de las encuestas del Centro de Estudios Públicos."),
-              p("Además, permite desagregar resultados en base a categorías sociodemográficas, filtrar grupos, configurar los gráficos y descargar los datos.")
-          )
-      ),
-      href = "https://www.encuestacep.cl", target = "_blank"),
-    
-    
+    caja_app(titulo = "Graficador encuesta CEP",
+             texto = div(
+               p("Aplicación web que permite visualizar gráficos de los resultados de las encuestas del Centro de Estudios Públicos."),
+               p("Además, permite desagregar resultados en base a categorías sociodemográficas, filtrar grupos, configurar los gráficos y descargar los datos.")),
+             enlace = "https://www.encuestacep.cl",
+             colores = colores$cep,
+             imagen = "www/graficador_cep.png", estilo_imagen = "height: 140px; margin-bottom: 20px; margin-top: 16px;",
+             colores_claros = TRUE
+    ) 
 )
 ```
+
+
+```{r otras}
+#| echo: false
+#| output: asis
+
+div(style = "overflow-y: hidden; ",
+    tags$style(paste(".anchorjs-link {display:none}")),
+    
+    h3("Otras utilidades", 
+       style = css(color = color_texto, 
+                   text_align = "center")),
+    
+    
+    caja_app_chica(titulo = "Estimador de ingresos por hora",
+                   texto = "Para trabajadores independientes o freelance: calcula un ingreso mensual promedio a partir de tu precio por hora, horas de trabajo diarias, y días de trabajo semanales.",
+                   color = "#BC4F21",
+                   enlace = "https://bastianoleah.shinyapps.io/estimador_ingresos_trabajo/"
+    ),
+    
+    caja_app_chica(titulo = "Estimador de ingresos para clases particulares",
+                   texto = "Para personas que hacen clases particulares: entrega una estimación de ingreso mensual y tiempo semanal de trabajo en base al precio de tus clases, cantidad de alumnos, y asistencia semanal de tus alumnos.",
+                   color = "#1FBE9A",
+                   enlace = "https://bastianoleah.shinyapps.io/estimador_ingresos_clases/"
+    ),
+    
+    caja_app_chica(titulo = "Generador de ideas para dibujantes",
+                   texto = "Para ilustradores, dibujantes y tatuadores: entrega ideas para dibujar de forma aleatoria, en base a decenas de parámetros, con opciones de personalización para controlar la complejidad y exageración de las ideas.",
+                   color = "#c386f1",
+                   enlace = "https://bastianoleah.shinyapps.io/autonatotattoo/"
+    )
+)
+```
+
+
 
 ```{r footer}
 #| echo: false
@@ -373,36 +399,35 @@ div(style = "overflow-y: hidden; ",
 #outro ----
 div(
   fluidRow(
-    column(12, style = paste("margin-top: 10px; font-size: 120%; 
-                             color: ", color_texto, ";
-                             margin-left: 30px; margin-right: 30px;"),
-           p("Estas apps han sido desarrolladas usando el ",
-             tags$a("lenguaje de programación estadística y de código abierto R,", target = "_blank", href = "https://www.r-project.org/about.html"),
-             "bajo el paradigma de los paquetes",
-             tags$a("{tidyverse} para manipulación, limpieza y procesamiento de datos,", href = "https://www.tidyverse.org", target = "_blank"),
-             "junto al",
-             tags$a("paquete {shiny} para desarrollar aplicaciones web interactivas.", target = "_blank", href = "https://shiny.posit.co")
-           ),
+    column(12, 
+           style = css(margin_top = "10px", font_size = "120%", 
+                       color = color_texto,
+                       margin_left = "30px", margin_right = "30px"),
            
-           p("El código de las aplicaciones está disponible en sus respectivos", 
-             tags$a("repositorios GitHub", href = "https://github.com/bastianolea?tab=repositories", target = "_blank"),
-             "incluendo todo el proceso de desarrollo, desde la descarga y limpieza de datos hasta el diseño de la interfaz de las apps."),
+           markdown("Todas estas apps han sido desarrolladas usando el [lenguaje de programación estadística y de código abierto R](https://www.r-project.org/about.html), 
+                    bajo el paradigma de los paquetes [{tidyverse} para manipulación, limpieza y procesamiento de datos,](https://www.tidyverse.org) 
+                    junto al [paquete {shiny} para desarrollar aplicaciones web interactivas.](https://shiny.posit.co)"),
            
-           
+           markdown("El código de las aplicaciones está disponible en sus respectivos 
+             [repositorios GitHub](https://github.com/bastianolea?tab=repositories),
+             incluendo todo el proceso de desarrollo, desde la descarga y limpieza de datos hasta el diseño de la interfaz de las apps."),
     )
   ),
+  
   fluidRow(
-    column(12, style = paste("margin-top: 40px; font-size: 90%; 
-                             color: ", color_texto, ";
-                             margin-left: 30px; margin-right: 30px;"),
+    column(12, 
+           style = css(margin_top = "40px", font_size = "90%", 
+                       color = color_texto,
+                       margin_left = "30px", margin_right = "30px;"),
            
            em("Bastián Olea Herrera"),
-           p(tags$a("bastianolea@gmail.com", href = "mailto:bastianolea@gmail.com"), style = "margin-bottom: 0;"),
-           p(tags$a("bastian.olea.biz", href = "http://bastian.olea.biz"))
+           
+           markdown("[bastianolea@gmail.com](mailto:bastianolea@gmail.com)"), 
+           
+           markdown("[bastian.olea.biz](http://bastian.olea.biz)")
+           
     )
   )
-  
-  
 )
 ```
 
