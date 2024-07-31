@@ -4,6 +4,14 @@ author: "Bastián Olea Herrera"
 format:
   html:
     link-external-icon: false
+    include-in-header:
+      text: |
+        <link rel="shortcut icon" type="image/png" href="apple-touch-icon.png">
+        <link rel="icon" type="image/x-icon" href="favicon.ico">
+        <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+
 ---
 
 ```{r setup}
@@ -21,8 +29,6 @@ source("funciones.R")
 ```{r colores}
 #| echo: false
 #| warning: false
-
-
 
 color_fondo = "#1e0f26"
 color_texto = "#d3c7dd"
