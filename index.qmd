@@ -91,6 +91,12 @@ colores$economia <- list(
   fondo = "#1C1833",
   texto = "#CCBCFF",
   borde = "#262145")
+
+colores$prensa <- list(
+  fondo = "#EEDABF",
+  texto = "#866C53",
+  borde = "#A5876A")
+
 ```
 
 
@@ -199,6 +205,18 @@ fluidPage(lang = "es",
 
 div(style = "overflow-y: hidden; ",
     tags$style(paste(".anchorjs-link {display:none}")), #ocultar icono de links
+    
+    
+    # prensa ----
+    caja_app(titulo = "Análisis de prensa de Chile",
+             texto = div(
+               markdown("Aplicación de **análisis de texto** de prensa escrita chilena. Contiene varios gráficos que cuantifican el contenido de las noticias de Chile, semana por semana. Los gráficos permiten identificar qué palabras son las más usadas a través del tiempo, lo cual a su vez revela cómo va variando el acontecer nacional."),
+               markdown("Los datos de esta aplicación son obtenidos mediante web scraping de forma diaria, pero la app se actualiza semanalmente. La base de datos comprende más de **600 mil noticias**, que suman más de 100 millones de palabras, abarcando más de 21 fuentes periodísticas distintas.")),
+             enlace = "https://bastianoleah.shinyapps.io/prensa_chile/",
+             colores = colores$prensa,
+             imagen = "www/prensa_chile.png", estilo_imagen = "height: 170px; margin: 22px; margin-bottom: 8px; margin-top: -8px;",
+             colores_claros = TRUE
+    ),
     
     
     # economía ----
