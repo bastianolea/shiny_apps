@@ -71,10 +71,10 @@ fluidPage(lang = "es",
              color: {{color_texto}};}
              
              .icono:hover {
-             filter: brightness(130%);}
+             filter: brightness(130%); transition: 0.4s}
              
              .icono_claro:hover {
-             filter: brightness(90%) saturate(140%);}")
+             filter: brightness(90%) saturate(140%); transition: 0.4s}")
 )
 ```
 
@@ -429,7 +429,7 @@ markdown("
     )
   ),
   
-  
+
   fluidRow(
     column(12, 
            style = css(margin_top = "40px", font_size = "90%", 
@@ -443,7 +443,22 @@ markdown("
            markdown("[bastian.olea.biz](https://bastian.olea.biz)")
            
     )
+  ),
+
+fluidRow(
+  column(12, style = "max-width: 350px; margin: auto;",
+         
+         tags$style(HTML(".cafecito:hover {opacity: 75%; transition: 0.3s; color: black !important;}
+                         .cafecito a:hover {color: black}")),
+         
+         div(class = "cafecito",
+             style = "transform:scale(0.7);",
+           tags$body(HTML('<script type="text/javascript" src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js" data-name="bmc-button" data-slug="bastimapache" data-color="#FFDD00" data-emoji=""  data-font="Bree" data-text="Regálame un cafecito" data-outline-color="#000000" data-font-color="#000000" data-coffee-color="#ffffff" ></script>'))
+         )
+         
   )
+)
+
 )
 ```
 
