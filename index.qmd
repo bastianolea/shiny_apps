@@ -100,11 +100,11 @@ fluidPage(lang = "es",
                                  margin_bottom = "20px", font_size = "82%",
                                  outline = paste("1px solid ", colorspace::lighten(color_destacado, 0.05))),
                      
-                     markdown("Portafolio de aplicaciones web interactivas sobre datos sociales, diseñadas y programadas en R por [Bastián Olea Herrera](https://bastian.olea.biz), magíster en sociología."),
+                     markdown("Portafolio de aplicaciones web interactivas sobre datos sociales, diseñadas y programadas en R por [Bastián Olea Herrera](https://bastian.olea.biz), sociólogx (U. Alberto Hurtado) y magíster en sociología (U. Católica de Chile)."),
                    ),
                    
                    # intro ----
-                   p("Este sitio contiene pequeñas aplicaciones web para la visualización y análisis de datos sociales, con un interés por la facilidad de uso, la exploración y el pensamiento crítico. El objetivo es", strong("transparentar datos sociales sobre Chile de forma atractiva y sencilla,"), "para que cualquier persona pueda explorar datos que le permitan responder sus inquietudes, o bien, adentrarse en el código y desarrollar sus propios análisis y productos en base a los datos existentes."),
+                   p("Este sitio contiene pequeñas aplicaciones web para la visualización y análisis de datos sociales, con un interés por la facilidad de uso, la exploración y el pensamiento crítico. El objetivo es", strong("transparentar datos sociales sobre Chile de forma atractiva y sencilla,"), "para que cualquier persona pueda explorar datos que le permitan responder sus inquietudes, o bien, adentrarse en el análisis de datos para  desarrollar sus propios análisis en base a los datos y código facilitados en cada app."),
                    
                    p("La idea es que otras personas puedan usar estas aplicaciones libremente, y revisar el código para aprender a programar en R, contribuyendo así a la comunidad de usuarios de R en Chile."),
                    
@@ -152,6 +152,20 @@ div(style = "overflow-y: hidden; ",
      h3("Aplicaciones interactivas de datos sociales", 
        style = css(color = color_texto, 
                    text_align = "center")),
+    
+    
+    
+    # temperatura ----
+    caja_app(titulo = "Temperaturas extremas en Chile",
+             texto = div(
+               markdown("Visualización de datos de temperaturas extremas en el país. Permite consultar rápidamente datos históricos para obtener gráficos que revelan los cambios en temperaturas a través del tiempo en nuestro país. El objetivo es visibilizar los efectos del cambio climático por medio de los datos."),
+               markdown("Los datos son obtenidos desde fuentes oficiales, y abarcan aproximadamente desde 1970 a 2024.")),
+             enlace = "https://bastianoleah.shinyapps.io/temperaturas_chile/",
+             colores = colores$temperaturas,
+             imagen = "www/temperaturas_chile.png", estilo_imagen = "height: 190px; margin: 22px; margin-bottom: 2px; margin-top: 0px;",
+             colores_claros = FALSE
+    ),
+    
     
     
     # prensa ----

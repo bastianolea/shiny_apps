@@ -7,6 +7,12 @@ color_destacado_2 = "#47215E" # "#422057"
 
 colores <- list()
 
+colores$temperaturas <- list(
+  fondo = "#271f25",
+  texto = "#bfa2ba",
+  borde = "#392d36"
+)
+
 colores$relacionador <- list(
   fondo = "#301519",
   texto = "#fecea8",
