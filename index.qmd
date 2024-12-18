@@ -61,7 +61,7 @@ fluidPage(lang = "es",
              
              a {
              color: {{color_enlaces}};
-             text-decoration: none !important; }
+             }
            
              a:hover {
              color: #724be7;
@@ -88,54 +88,28 @@ fluidPage(lang = "es",
           fluidRow(
             column(12, 
                    style = css(font_size = "110%", color = color_texto, 
-                               margin_left = "30px", margin_right = "30px", margin_bottom = "0px"),
+                               margin_left = "30px", margin_right = "30px", margin_bottom = "-8px"),
                    
                    #subtítulo ----     
-                   div(
-                     style = css(padding = "16px", padding_bottom = "1px", 
-                                 background_color = color_destacado,
-                                 color = colorspace::lighten(color_texto, 0.2),
-                                 border_radius = "6px",
-                                 margin_left = "30px", margin_right = "30px",
-                                 margin_bottom = "20px", font_size = "82%",
-                                 outline = paste("1px solid ", colorspace::lighten(color_destacado, 0.05))),
-                     
-                     markdown("Portafolio de aplicaciones web interactivas sobre datos sociales, diseñadas y programadas en R por [Bastián Olea Herrera](https://bastian.olea.biz), sociólogx (U. Alberto Hurtado) y magíster en sociología (U. Católica de Chile)."),
+                   div(style = "height: 16px;"),
+                   
+                   cuadro_intro(
+                     markdown("Portafolio de aplicaciones web interactivas sobre datos sociales, diseñadas y programadas en R por [Bastián Olea Herrera](https://bastianolea.rbind.io), sociólogx (U. Alberto Hurtado) y magíster en sociología (U. Católica de Chile)."),
                    ),
                    
                    # intro ----
-                   p("Este sitio contiene pequeñas aplicaciones web para la visualización y análisis de datos sociales, con un interés por la facilidad de uso, la exploración y el pensamiento crítico. El objetivo es", strong("transparentar datos sociales sobre Chile de forma atractiva y sencilla,"), "para que cualquier persona pueda explorar datos que le permitan responder sus inquietudes, o bien, adentrarse en el análisis de datos para  desarrollar sus propios análisis en base a los datos y código facilitados en cada app."),
+                   div(style = "height: 20px;"),
                    
-                   p("La idea es que otras personas puedan usar estas aplicaciones libremente, y revisar el código para aprender a programar en R, contribuyendo así a la comunidad de usuarios de R en Chile."),
+                   markdown("Este portafolio contiene pequeñas **aplicaciones web para la visualización y análisis de datos sociales**, con un interés por la facilidad de uso, la exploración y el pensamiento crítico."),
                    
-                   markdown("Todo el código de estas aplicaciones y otros proyectos de ciencia de datos están disponibles en [mi GitHub.](https://github.com/bastianolea?tab=repositories)")
+                   markdown("El objetivo de estas apps **transparentar datos sociales sobre Chile de forma atractiva y sencilla**, para que cualquier persona pueda responder sus inquietudes y explorar a partir de los datos.")
+                   
             ),
             
-            # aviso ----
-            div(
-                     style = c(
-                       css(padding = "16px", padding_bottom = "1px", 
-                                 background_color = color_destacado,
-                                 color = lighten(color_texto, 0.2),
-                                 border_radius = "6px",
-                                 margin = "20px",
-                                 margin_top = "40px",
-                                 margin_left = "30px", margin_right = "30px",
-                                 font_size = "80%",
-                                 outline = paste("1px solid ", lighten(color_destacado, 0.05))
-                           ),
-                       # configuración de la animación de fondo
-                       "animation-name: pulse; 
-                       animation-duration: 0.8s; 
-                       animation-iteration-count: infinite; 
-                       animation-direction: alternate-reverse;
-                       animation-timing-function: linear;"
-                                 ),
-                               
-  
-                     
-                     markdown("¿Quieres **aprender R** o aprender a desarrollar apps con R? [¡Contáctame!](mailto:bastianolea@gmail.com) Ofrezco clases particulares de R, asesorías, desarrollo de apps, y apoyo para cualquier tipo de proyecto.")
-                   )
+            # # aviso ----
+            # cuadro_aviso(
+            #   markdown("¿Quieres **aprender R** o aprender a desarrollar apps con R? [¡Contáctame!](https://bastianolea.rbind.io/contact) Ofrezco clases particulares de R, asesorías, desarrollo de apps, y apoyo para cualquier tipo de proyecto.")
+            #        )
           )
 )
 ```
@@ -148,11 +122,9 @@ fluidPage(lang = "es",
 div(style = "overflow-y: hidden; ",
     tags$style(paste(".anchorjs-link {display:none}")), #ocultar icono de links
     
-    
-     h3("Aplicaciones interactivas de datos sociales", 
-       style = css(color = color_texto, 
-                   text_align = "center")),
-    
+     # h3("Aplicaciones interactivas de datos sociales", 
+     #   style = css(color = color_texto, 
+     #               text_align = "center")),
     
     
     # temperatura ----
@@ -193,23 +165,20 @@ div(style = "overflow-y: hidden; ",
     
     
     #delincuencia ----
-    tags$a(
-      div(class = "icono",
-          style = estilar_cajas(colores$delincuencia), 
-          h3("Delincuencia en Chile"),
-          tags$img(src = "www/delincuencia_chile.png", style = "height: 150px;  margin: 22px; margin-top: 8px;"),
-          div(style = "text-align: left !important;",
-              p("Visualización de", strong("estadísticas oficiales de delincuencia,"), "separadas por comuna y delito, para darle contexto y seriedad a un tema país a partir de datos objetivos."),
-              p("Selecciona una comuna y luego uno o varios delitos para obtener un gráfico de líneas que muestra una", strong("serie de tiempo"), "de la cantidad de delitos, desde 2010 hasta 2023. Además, puedes visualizar la", strong("cantidad de delitos por año"), "en la comuna seleccionada, el promedio de delitos en los gobiernos recientes, y una visualización de los tres",  strong("delitos más frecuentes"), "en cada comuna.")
-          )
-      ),
-      href = "https://bastianoleah.shinyapps.io/delincuencia_chile/", target = "_blank"),
+    caja_app(titulo = "Delincuencia en Chile",
+             texto = div(
+               markdown("Visualización de **estadísticas oficiales de delincuencia**, separadas por comuna y delito, para darle contexto y seriedad a un tema país a partir de datos objetivos."),
+              markdown("Selecciona una comuna y luego uno o varios delitos para obtener un gráfico de líneas que muestra una **serie de tiempo** de la cantidad de delitos, desde 2010 hasta 2023. Además, puedes visualizar la **cantidad de delitos por año** en la comuna seleccionada, el promedio de delitos en los gobiernos recientes, y una visualización de los tres **delitos más frecuentes** en cada comuna.")),
+             enlace = "https://bastianoleah.shinyapps.io/delincuencia_chile/",
+             colores = colores$delincuencia,
+             imagen = "www/delincuencia_chile.png", estilo_imagen = "height: 150px;  margin: 22px; margin-top: 8px;"
+    ),
     
     
     
     
     #corrupción ----
-    tags$a(
+    tags$a(style = "text-decoration: none !important;",
       div(class = "icono", style = estilar_cajas(colores$corrupcion), 
           
           h3("Visualizador de casos de corrupción"),
@@ -225,7 +194,7 @@ div(style = "overflow-y: hidden; ",
     
     
     #femicidios ----
-    tags$a(
+    tags$a(style = "text-decoration: none !important;",
       div(class = "icono", style = estilar_cajas(colores$femicidios), 
           
           h3("Femicidios en Chile"),
@@ -242,7 +211,7 @@ div(style = "overflow-y: hidden; ",
     
     
     #millonarios ----
-    tags$a(
+    tags$a(style = "text-decoration: none !important;",
       div(class = "icono", style = estilar_cajas(colores$millonarios), 
           
           h3("Millonarios de Chile"),
@@ -257,7 +226,7 @@ div(style = "overflow-y: hidden; ",
     
     
     #relacionador ----
-    tags$a(
+    tags$a(style = "text-decoration: none !important;",
       div(class = "icono", style = estilar_cajas(colores$relacionador), 
           
           h3("Relacionador de variables"),
@@ -284,7 +253,7 @@ div(style = "overflow-y: hidden; ",
     
     
     #brechas de género ----
-    tags$a(
+    tags$a(style = "text-decoration: none !important;",
       div(class = "icono",
           style = estilar_cajas(colores$brechas),
           
@@ -299,7 +268,7 @@ div(style = "overflow-y: hidden; ",
     
     
     #comparador ----
-    tags$a(
+    tags$a(style = "text-decoration: none !important;",
       div(class = "icono", style = estilar_cajas(colores$comparador),
           
           h3("Comparador de ingresos"),
@@ -315,7 +284,7 @@ div(style = "overflow-y: hidden; ",
     
     
     #censo proyecciones ----
-    tags$a(
+    tags$a(style = "text-decoration: none !important;",
       div(class = "icono", style = estilar_cajas(colores$censo),
           
           h3("Proyecciones de población del Censo"),
@@ -387,7 +356,10 @@ div(
            style = css(margin_top = "10px", font_size = "110%", 
                        color = color_texto,
                        margin_left = "30px", margin_right = "30px"),
+
            
+markdown("Todas estas aplicaciones son de código abierto, y los datos son públicos. Esto significa que cualquier persona puede utilizar [el código y los datos de las aplicaciones](https://github.com/bastianolea?tab=repositories) para adentrarse en el mundo del análisis de datos y [aprender a programar en R](https://bastianolea.rbind.io/blog/r_introduccion/), el lenguaje de programación usado para desarrollar todas estas apps."),
+
            markdown("Todas estas apps han sido desarrolladas usando el [lenguaje de programación estadística y de código abierto R](https://www.r-project.org/about.html), 
                     bajo el paradigma de los paquetes [{tidyverse} para manipulación, limpieza y procesamiento de datos,](https://www.tidyverse.org) 
                     junto al [paquete {shiny} para desarrollar aplicaciones web interactivas.](https://shiny.posit.co)"),
@@ -396,7 +368,7 @@ div(
              [repositorios GitHub](https://github.com/bastianolea?tab=repositories),
              incluendo todo el proceso de desarrollo, desde la descarga y limpieza de datos hasta el diseño de la interfaz de las apps."),
            
-           markdown("¡Cualquier duda o comentario es bienvenido! Puedes encontrarme [en redes sociales](www.x.com/bastimapache) o [escribirme un correo](mailto:bastianolea@gmail.com) con total libertad.")
+           markdown("¡Cualquier duda o comentario es bienvenido! Puedes encontrarme [en redes sociales](www.x.com/bastimapache) o [escribirme un correo](https://bastianolea.rbind.io/contact) con total libertad.")
            
     )
   ),
@@ -404,29 +376,8 @@ div(
   # aviso ----
   fluidRow(
     column(12,
-                   div(
-                     style = c(
-                       css(padding = "16px", padding_bottom = "1px", 
-                                 background_color = color_destacado,
-                                 color = lighten(color_texto, 0.2),
-                                 border_radius = "6px",
-                                 margin = "20px",
-                                 margin_top = "40px",
-                                 margin_left = "30px", margin_right = "30px",
-                                 font_size = "100%",
-                                 outline = paste("1px solid ", lighten(color_destacado, 0.05))
-                           ),
-                       # configuración de la animación de fondo
-                       "animation-name: pulse; 
-                       animation-duration: 0.8s; 
-                       animation-iteration-count: infinite; 
-                       animation-direction: alternate-reverse;
-                       animation-timing-function: linear;"
-                                 ),
-                               
-  
-                     
-                     markdown("Si te interesa **aprender R** o **mejorar tus habilidades con R,** [contáctame!](mailto:bastianolea@gmail.com) Ofrezco **clases particulares de R,** asesorías, y apoyo para cualquier tipo de proyecto."),
+                   cuadro_aviso(
+                     markdown("Si te interesa **aprender R** o **mejorar tus habilidades con R,** [contáctame!](https://bastianolea.rbind.io/contact) Ofrezco **clases particulares de R,** asesorías, y apoyo para cualquier tipo de proyecto."),
 
                      div(style = css(font_size = "80%", color = lighten(color_enlaces, 0.2), opacity = "100%"),
                      markdown("
@@ -452,16 +403,16 @@ markdown("
            
            markdown("_Bastián Olea Herrera._ Magíster en sociología, analista de datos."),
            
-           markdown("[bastianolea@gmail.com](mailto:bastianolea@gmail.com)"), 
+           markdown("[baolea@uc.cl](https://bastianolea.rbind.io/contact)"), 
            
-           markdown("[bastian.olea.biz](https://bastian.olea.biz)")
-           
+           markdown("[bastianolea.rbind.io](https://bastianolea.rbind.io)"),
+           br()
     )
   ),
 
 # cafecito ----
 fluidRow(
-  column(12, style = "max-width: 350px; margin: auto;",
+  column(12, style = "max-width: 360px; margin: auto;",
          
          tags$style(HTML(".cafecito:hover {opacity: 75%; transition: 0.3s; color: black !important;}
                          .cafecito a:hover {color: black}")),

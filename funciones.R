@@ -4,10 +4,11 @@ tag_css <- function(text) {
 }
 
 estilo_cajas <- "margin: 18px; padding: 20px; padding-bottom: 1px; padding-top: 1px; 
-                 min-height: 400px; max-width: 380px;
+                 min-height: 400px; max-width: 420px;
                  border-radius: 8px;
                  font-size: 90%; text-align: center;
                  margin: auto;
+                 text-decoration: none !important; 
                  margin-bottom: 36px; margin-top: 36px;
                  "
 
@@ -15,6 +16,7 @@ estilar_cajas <- function(colores) {
   c(estilo_cajas, 
     paste("background-color: ", colores$fondo, "; 
           color: ", colores$texto, " !important;
+          text-decoration: none !important; 
           outline: 1px solid ", colores$borde, ";
           ")
   )
@@ -26,6 +28,7 @@ estilar_cajitas <- function(colores) {
                  border-radius: 8px;
                  font-size: 80%; text-align: left;
                  margin: auto;
+                 text-decoration: none !important; 
                  margin-bottom: 20px; margin-top: 20px;
                  ", 
     paste("background-color: ", colores$fondo, "; 
@@ -45,7 +48,7 @@ caja_app <- function(titulo = "Delincuencia en Chile",
                      estilo_imagen = "height: 150px; margin: 22px; margin-top: 8px;",
                      colores_claros = FALSE
 ) {
-  tags$a(
+  tags$a(style = "text-decoration: none !important;",
     div(class = ifelse(colores_claros == FALSE, "icono", "icono_claro"),
         style = estilar_cajas(colores), 
         
@@ -74,7 +77,7 @@ caja_app_chica <- function(titulo = "App",
                   texto = color |> lighten(1),
                   borde = color |> lighten(0.3))
   
-  out <- tags$a(
+  out <- tags$a(style = "text-decoration: none !important;",
     div(class = "icono", 
         style = estilar_cajitas(colores), 
         
@@ -89,4 +92,42 @@ caja_app_chica <- function(titulo = "App",
     href = enlace, target = "_blank") 
   
   return(out)
+}
+
+cuadro_intro <- function(...) {
+  div(
+    style = css(padding = "16px", padding_bottom = "1px", 
+                background_color = color_destacado,
+                color = colorspace::lighten(color_texto, 0.2),
+                border_radius = "6px",
+                margin_left = "30px", margin_right = "30px",
+                margin_bottom = "20px", font_size = "82%",
+                outline = paste("1px solid ", colorspace::lighten(color_destacado, 0.05))),
+    ...
+    )
+}
+
+
+cuadro_aviso <- function(...) {
+  div(
+    style = c(
+      css(padding = "16px", padding_bottom = "1px", 
+          background_color = color_destacado,
+          color = lighten(color_texto, 0.2),
+          border_radius = "6px",
+          margin = "20px",
+          margin_top = "40px",
+          margin_left = "30px", margin_right = "30px",
+          font_size = "80%",
+          outline = paste("1px solid ", lighten(color_destacado, 0.05))
+      ),
+      # configuración de la animación de fondo
+      "animation-name: pulse; 
+                       animation-duration: 0.8s; 
+                       animation-iteration-count: infinite; 
+                       animation-direction: alternate-reverse;
+                       animation-timing-function: linear;"
+    ),
+    ...
+  )
 }
