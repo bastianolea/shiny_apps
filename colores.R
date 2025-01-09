@@ -7,6 +7,12 @@ color_destacado_2 = "#47215E" # "#422057"
 
 colores <- list()
 
+colores$palestina <- list(
+  fondo = "#151515",
+  texto = "#DDDDDD",
+  borde = "#353535"
+)
+
 colores$temperaturas <- list(
   fondo = "#271f25",
   texto = "#bfa2ba",

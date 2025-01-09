@@ -127,6 +127,19 @@ div(style = "overflow-y: hidden; ",
      #               text_align = "center")),
     
     
+    # palestina ----
+    caja_app(titulo = "Genocidio en Palestina",
+             texto = div(
+               markdown("Visualizador de datos que busca reflejar el horror de la guerra y el exterminio que se están llevando a cabo en el territorio palestino por obra de Israel y sus aliados. Los datos provienen de Palestine Datasets y de Armed Conflict Location & Event Data, organizaciones que están documentando datos sobre identificación de víctimas y registro de sucesos de relevancia política en la región."),
+               ),
+             enlace = "https://bastianoleah.shinyapps.io/palestina/",
+             colores = colores$palestina,
+             imagen = "www/palestina.png", estilo_imagen = "height: 190px; margin: 22px; margin-bottom: 8px; margin-top: -15px;",
+             colores_claros = FALSE
+    ),
+    
+    
+    
     # temperatura ----
     caja_app(titulo = "Temperaturas extremas en Chile",
              texto = div(
