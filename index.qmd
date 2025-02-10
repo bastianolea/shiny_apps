@@ -3,6 +3,7 @@ title: "Visualizadores de datos sociales en R"
 author: "Bastián Olea Herrera"
 format:
   html:
+    embed-resources: true
     link-external-icon: false
     include-in-header:
       text: |
