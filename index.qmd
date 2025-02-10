@@ -372,7 +372,7 @@ div(
                        margin_left = "30px", margin_right = "30px"),
 
            
-markdown("Todas estas aplicaciones son de código abierto, y los datos son públicos. Esto significa que cualquier persona puede utilizar [el código y los datos de las aplicaciones](https://github.com/bastianolea?tab=repositories) para adentrarse en el mundo del análisis de datos y [aprender a programar en R](https://bastianolea.rbind.io/blog/r_introduccion/), el lenguaje de programación usado para desarrollar todas estas apps."),
+markdown("Todas estas aplicaciones son de código abierto, y los [conjuntos de datos](https://bastianolea.github.io/datos_sociales/) son públicos. Cualquier persona puede utilizar [el código y los datos de las aplicaciones](https://github.com/bastianolea?tab=repositories) para adentrarse en el mundo del análisis de datos y [aprender a programar en R](https://bastianolea.rbind.io/blog/r_introduccion/)."),
 
            markdown("Todas estas apps han sido desarrolladas usando el [lenguaje de programación estadística y de código abierto R](https://www.r-project.org/about.html), 
                     bajo el paradigma de los paquetes [{tidyverse} para manipulación, limpieza y procesamiento de datos,](https://www.tidyverse.org) 
