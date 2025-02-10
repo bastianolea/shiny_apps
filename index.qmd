@@ -100,10 +100,11 @@ fluidPage(lang = "es",
                    # intro ----
                    div(style = "height: 20px;"),
                    
-                   markdown("Este portafolio contiene pequeñas **aplicaciones web para la visualización y análisis de datos sociales**, con un interés por la facilidad de uso, la exploración y el pensamiento crítico."),
+                   markdown("Este portafolio contiene **aplicaciones web para la visualización y análisis de datos sociales**, con un interés por la facilidad de uso, la exploración y el pensamiento crítico."),
                    
-                   markdown("El objetivo de estas apps **transparentar datos sociales sobre Chile de forma atractiva y sencilla**, para que cualquier persona pueda responder sus inquietudes y explorar a partir de los datos.")
+                   markdown("El objetivo de estas apps es **transparentar datos sociales de forma atractiva y sencilla**, para que cualquier persona pueda responder sus inquietudes y explorar a partir de los datos."),
                    
+                   markdown("Puedes encontrar [más información sobre las aplicaciones en mi sitio web](https://bastianolea.rbind.io/apps/).")
             ),
             
             # # aviso ----
@@ -380,32 +381,34 @@ markdown("Todas estas aplicaciones son de código abierto, y los datos son públ
            markdown("El código de las aplicaciones está disponible en sus respectivos 
              [repositorios GitHub](https://github.com/bastianolea?tab=repositories),
              incluendo todo el proceso de desarrollo, desde la descarga y limpieza de datos hasta el diseño de la interfaz de las apps."),
+
+markdown("También tengo disponible un [repositorio de datos sociales](https://bastianolea.github.io/datos_sociales/) para que explores conjuntos de datos sociales listos para analizar."),
            
            markdown("¡Cualquier duda o comentario es bienvenido! Puedes encontrarme [en redes sociales](www.x.com/bastimapache) o [escribirme un correo](https://bastianolea.rbind.io/contact) con total libertad.")
            
     )
   ),
-  
-  # aviso ----
-  fluidRow(
-    column(12,
-                   cuadro_aviso(
-                     markdown("Si te interesa **aprender R** o **mejorar tus habilidades con R,** [contáctame!](https://bastianolea.rbind.io/contact) Ofrezco **clases particulares de R,** asesorías, y apoyo para cualquier tipo de proyecto."),
-
-                     div(style = css(font_size = "80%", color = lighten(color_enlaces, 0.2), opacity = "100%"),
-                     markdown("
-                              - Aprende a usar R desde cero con clases personalizadas a tu nivel y objetivos
-                              - Resuelve tus dudas y soluciona las dificultades que tengas con tu proyecto de R
-                              - Visualiza datos de forma atractiva y crea bellas tablas con R
-                              - Automatiza tus procesos con R
-                              - Genera reportes automatizados con R
-                              - Aprende a desarrollar apps interactivas con R Shiny
-                              ")),
-markdown("
-                              También puedo desarrollar aplicaciones Shiny personalizadas y de acuerdo a tus necesidades, y más!"),
-                   )
-    )
-  ),
+#   
+#   # aviso ----
+#   fluidRow(
+#     column(12,
+#                    cuadro_aviso(
+#                      markdown("Si te interesa **aprender R** o **mejorar tus habilidades con R,** [contáctame!](https://bastianolea.rbind.io/contact) Ofrezco **clases particulares de R,** asesorías, y apoyo para cualquier tipo de proyecto."),
+# 
+#                      div(style = css(font_size = "80%", color = lighten(color_enlaces, 0.2), opacity = "100%"),
+#                      markdown("
+#                               - Aprende a usar R desde cero con clases personalizadas a tu nivel y objetivos
+#                               - Resuelve tus dudas y soluciona las dificultades que tengas con tu proyecto de R
+#                               - Visualiza datos de forma atractiva y crea bellas tablas con R
+#                               - Automatiza tus procesos con R
+#                               - Genera reportes automatizados con R
+#                               - Aprende a desarrollar apps interactivas con R Shiny
+#                               ")),
+# markdown("
+#                               También puedo desarrollar aplicaciones Shiny personalizadas y de acuerdo a tus necesidades, y más!"),
+#                    )
+#     )
+#   ),
   
 
   fluidRow(
@@ -429,6 +432,8 @@ fluidRow(
          
          tags$style(HTML(".cafecito:hover {opacity: 75%; transition: 0.3s; color: black !important;}
                          .cafecito a:hover {color: black}")),
+         
+         tags$style(HTML(".bmc-btn-text {color:", color_fondo, "!important;}")),
          
          div(class = "cafecito",
              style = "transform:scale(0.7);",
