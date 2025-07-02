@@ -17,6 +17,9 @@ estilar_cajas <- function(colores) {
     paste("background-color: ", colores$fondo, "; 
           color: ", colores$texto, " !important;
           text-decoration: none !important; 
+          margin: 3px;
+          margin-top: 16px;
+          margin-left: auto; margin-right: auto;
           outline: 1px solid ", colores$borde, ";
           ")
   )
@@ -49,21 +52,23 @@ caja_app <- function(titulo = "Delincuencia en Chile",
                      colores_claros = FALSE
 ) {
   tags$a(style = "text-decoration: none !important;",
-    div(class = ifelse(colores_claros == FALSE, "icono", "icono_claro"),
-        style = estilar_cajas(colores), 
-        
-        div(style = css(margin_top = "-10px"),
-            h3(titulo)
-        ),
-        
-        tags$img(src = imagen, 
-                 style = estilo_imagen),
-        div(style = "text-align: left !important;",
-            texto
-        )
-    ),
-    href = enlace, 
-    target = "_blank")
+         div(style = "padding: 4px;",
+             div(class = ifelse(colores_claros == FALSE, "icono", "icono_claro"),
+                 style = estilar_cajas(colores), 
+                 
+                 div(style = css(margin_top = "-10px"),
+                     h3(titulo)
+                 ),
+                 
+                 tags$img(src = imagen, 
+                          style = estilo_imagen),
+                 div(style = "text-align: left !important;",
+                     texto
+                 )
+             )
+         ),
+         href = enlace, 
+         target = "_blank")
 }
 
 
@@ -78,18 +83,18 @@ caja_app_chica <- function(titulo = "App",
                   borde = color |> lighten(0.3))
   
   out <- tags$a(style = "text-decoration: none !important;",
-    div(class = "icono", 
-        style = estilar_cajitas(colores), 
-        
-        div(style = css(margin_top = "-14px"),
-            h3(titulo, style = "font-size: 120%;"),
-        ),
-        
-        div(style = "text-align: left !important; opacity: .7;",
-            texto
-        )
-    ),
-    href = enlace, target = "_blank") 
+                div(class = "icono", 
+                    style = estilar_cajitas(colores), 
+                    
+                    div(style = css(margin_top = "-14px"),
+                        h3(titulo, style = "font-size: 120%;"),
+                    ),
+                    
+                    div(style = "text-align: left !important; opacity: .7;",
+                        texto
+                    )
+                ),
+                href = enlace, target = "_blank") 
   
   return(out)
 }
@@ -104,7 +109,7 @@ cuadro_intro <- function(...) {
                 margin_bottom = "20px", font_size = "82%",
                 outline = paste("1px solid ", colorspace::lighten(color_destacado, 0.05))),
     ...
-    )
+  )
 }
 
 
