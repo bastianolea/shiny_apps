@@ -92,3 +92,8 @@ colores$prensa <- list(
   fondo = "#EEDABF",
   texto = "#866C53",
   borde = "#A5876A")
+
+colores$dictadura <- list(
+  fondo = "#000000",
+  texto = "#E7E7E7",
+  borde = "#222222")

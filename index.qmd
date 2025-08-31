@@ -363,7 +363,20 @@ div(style = "overflow-y: hidden; ",
              colores = colores$cep,
              imagen = "www/graficador_cep.png", estilo_imagen = "height: 140px; margin-bottom: 20px; margin-top: 16px;",
              colores_claros = TRUE
-    ) 
+    ),
+    
+    
+    
+        # dictadura ----
+    caja_app(titulo = "Violaciones a los Derechos Humanos cometidas por la dictadura cívico-militar chilena",
+             texto = div(
+               markdown("Infografía que recopila visualizaciones de datos acerca de los crímenes de lesa humanidad cometidos por el régimen dictatorial en Chile, entre entre 1973 y 1989."),
+              markdown("El objetivo es poder compartir información de forma pedagógica y clara, para que las nuevas generaciones puedan comprender la magnitud de las violaciones a los derechos humanos cometidas en ese período, y así contribuir a la memoria histórica del país.")
+               ),
+             enlace = "https://bastianolea.github.io/violaciones_ddhh_chile/",
+             colores = colores$dictadura,
+             imagen = "www/dictadura.jpg", estilo_imagen = "height: 130px; margin: 12px; margin-top: 8px;"
+    ),
 )
 ```
 
