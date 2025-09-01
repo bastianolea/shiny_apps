@@ -393,7 +393,6 @@ div(style = "overflow-y: hidden; ",
        style = css(color = color_texto, 
                    text_align = "center")),
     
-    
     caja_app_chica(titulo = "Estimador de ingresos por hora",
                    texto = "Para trabajadores independientes o freelance: calcula un ingreso mensual promedio a partir de tu precio por hora, horas de trabajo diarias, y días de trabajo semanales.",
                    color = "#BC4F21",
@@ -410,6 +409,12 @@ div(style = "overflow-y: hidden; ",
                    texto = "Para ilustradores, dibujantes y tatuadores: entrega ideas para dibujar de forma aleatoria, en base a decenas de parámetros, con opciones de personalización para controlar la complejidad y exageración de las ideas.",
                    color = "#c386f1",
                    enlace = "https://bastianoleah.shinyapps.io/autonatotattoo/"
+    ),
+    
+    caja_app_chica(titulo = "Generador de ruido visual",
+                   texto = "Experimento para generar ruido visual mediante texto a partir de algunos parámetros personalizables. La idea es que las olas de texto produzcan efectos visuales interesantes.",
+                   color = "#181818",
+                   enlace = "https://bastianoleah.shinyapps.io/ruido_visual/"
     )
 )
 ```
