@@ -1,5 +1,5 @@
 ---
-title: "Visualizadores de datos sociales en R"
+title: "Visualizadores de datos sociales"
 author: "Bastián Olea Herrera"
 format:
   html:
@@ -126,35 +126,45 @@ fluidPage(lang = "es",
 div(style = "overflow-y: hidden; ",
     tags$style(paste(".anchorjs-link {display:none}")), #ocultar icono de links
     
+    # 
+    # # avisos ----
+    # div(style = "padding: 4px;",
+    #     div(class = "icono", 
+    #         style = paste("margin: 18px; padding: 20px; padding-bottom: 1px; padding-top: 1px; 
+    #              min-height: 120px; max-width: 420px;
+    #              border-radius: 8px;
+    #              font-size: 90%; text-align: center;
+    #              margin: auto;
+    #              text-decoration: none !important; 
+    #              margin-bottom: 36px; margin-top: 36px;
+    #              ",
+    #              "background-color: ", color_destacado, "; 
+    #       color: ", colorspace::lighten(color_texto, 0.2), " !important;
+    #       text-decoration: none !important; 
+    #       margin: 3px;
+    #       margin-top: 16px;
+    #       margin-left: auto; margin-right: auto;
+    #       outline: 1px solid ", colorspace::lighten(color_destacado, 0.05), ";
+    #       "),
+    #       
+    #       h3("Presidenciales 2025: análisis de prensa"),
+    #       
+    #       div(style = "text-align: center !important; height: 50px;",
+    #           markdown("_Pronto..._")
+    #       )
+    #     )
+    # ),
     
-    # avisos ----
-    div(style = "padding: 4px;",
-        div(class = "icono", 
-            style = paste("margin: 18px; padding: 20px; padding-bottom: 1px; padding-top: 1px; 
-                 min-height: 120px; max-width: 420px;
-                 border-radius: 8px;
-                 font-size: 90%; text-align: center;
-                 margin: auto;
-                 text-decoration: none !important; 
-                 margin-bottom: 36px; margin-top: 36px;
-                 ",
-                 "background-color: ", color_destacado, "; 
-          color: ", colorspace::lighten(color_texto, 0.2), " !important;
-          text-decoration: none !important; 
-          margin: 3px;
-          margin-top: 16px;
-          margin-left: auto; margin-right: auto;
-          outline: 1px solid ", colorspace::lighten(color_destacado, 0.05), ";
-          "),
-          
-          h3("Presidenciales 2025: análisis de prensa"),
-          
-          div(style = "text-align: center !important; height: 50px;",
-              markdown("_Pronto..._")
-          )
-        )
+      # dictadura ----
+    caja_app(titulo = "Violaciones a los Derechos Humanos cometidas por la dictadura cívico-militar chilena",
+             texto = div(
+               markdown("Infografía que recopila visualizaciones de datos acerca de los crímenes de lesa humanidad cometidos por el régimen dictatorial en Chile, entre entre 1973 y 1989."),
+              markdown("El objetivo es poder compartir información de forma pedagógica y clara, para que las nuevas generaciones puedan comprender la magnitud de las violaciones a los derechos humanos cometidas en ese período, y así contribuir a la memoria histórica del país.")
+               ),
+             enlace = "https://bastianolea.github.io/violaciones_ddhh_chile/",
+             colores = colores$dictadura,
+             imagen = "www/dictadura.jpg", estilo_imagen = "height: 130px; margin: 12px; margin-top: 8px;"
     ),
-    
     
     
     # palestina ----
@@ -367,16 +377,7 @@ div(style = "overflow-y: hidden; ",
     
     
     
-        # dictadura ----
-    caja_app(titulo = "Violaciones a los Derechos Humanos cometidas por la dictadura cívico-militar chilena",
-             texto = div(
-               markdown("Infografía que recopila visualizaciones de datos acerca de los crímenes de lesa humanidad cometidos por el régimen dictatorial en Chile, entre entre 1973 y 1989."),
-              markdown("El objetivo es poder compartir información de forma pedagógica y clara, para que las nuevas generaciones puedan comprender la magnitud de las violaciones a los derechos humanos cometidas en ese período, y así contribuir a la memoria histórica del país.")
-               ),
-             enlace = "https://bastianolea.github.io/violaciones_ddhh_chile/",
-             colores = colores$dictadura,
-             imagen = "www/dictadura.jpg", estilo_imagen = "height: 130px; margin: 12px; margin-top: 8px;"
-    ),
+      
 )
 ```
 
