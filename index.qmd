@@ -165,7 +165,18 @@ div(style = "overflow-y: hidden; ",
              colores = colores$dictadura,
              imagen = "www/dictadura.jpg", estilo_imagen = "height: 130px; margin: 12px; margin-top: 8px;"
     ),
+   
     
+     # mideso género ----
+    caja_app(titulo = "Comparación de ingresos",
+             texto = div(
+               markdown("Visualizador sencillo de datos de ingresos de Chile a nivel regional, comunal, y por género. Su objetivo es visibilizar diferencias de los ingresos recibidos por las y los trabajadores, permitiendo compararlos por regiones y comunas, así como también producir comparaciones de brechas de género entre hombres y mujeres."),
+               ),
+             enlace = "https://bastianoleah.shinyapps.io/mideso_ingresos_genero/",
+             colores = colores$ingresos_genero,
+             imagen = "www/ingresos_genero.png", estilo_imagen = "height: 190px; margin: 22px; margin-bottom: 8px; margin-top: -15px;",
+             colores_claros = FALSE
+    ), 
     
     # palestina ----
     caja_app(titulo = "Genocidio en Palestina",

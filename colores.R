@@ -97,3 +97,9 @@ colores$dictadura <- list(
   fondo = "#000000",
   texto = "#E7E7E7",
   borde = "#333333")
+
+
+colores$ingresos_genero <- list(
+fondo = "#121A2B",
+borde = "#1D2940",
+texto = "#A5B7CAFF")
