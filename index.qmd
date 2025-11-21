@@ -497,8 +497,6 @@ markdown("También tengo disponible un [repositorio de datos sociales](https://b
            
            markdown("_Bastián Olea Herrera._ Magíster en sociología, analista de datos."),
            
-           markdown("[baolea@uc.cl](https://bastianolea.rbind.io/contact)"), 
-           
            markdown("[bastianolea.rbind.io](https://bastianolea.rbind.io)"),
            br()
     )
