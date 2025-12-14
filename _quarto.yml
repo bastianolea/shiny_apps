@@ -35,6 +35,6 @@ website:
 format:
   html:
     toc: false
-
+    include-after-body: goatcounter.html
 
 
