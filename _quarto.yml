@@ -12,16 +12,14 @@ website:
     collapse: true
     tools-collapse: true
     left:
-      - text: "Datos"
-        href: https://bastianolea.github.io/datos_sociales/
       - text: "Blog"
         href: https://bastianolea.rbind.io/blog/
-      - text: "Tutoriales"
-        href: https://bastianolea.rbind.io/categories/tutoriales/
-      - text: "Yo"
-        href: https://bastianolea.rbind.io/about/
-      - text: "Contacto"
-        href: https://bastianolea.rbind.io/contacto/
+      - text: "Datos"
+        href: https://bastianolea.github.io/datos_sociales/
+      - text: "Aprende R"
+        href: https://bastianolea.github.io/aprende_r/
+      - text: "Acerca de"
+        href: https://bastianolea.rbind.io
     tools:
       - icon: globe
         href: https://bastianolea.rbind.io
@@ -31,11 +29,12 @@ website:
         href: https://github.com/bastianolea?tab=repositories
       - icon: linkedin
         href: https://www.linkedin.com/in/bastianolea/
+      - icon: envelope
+        href: https://bastianolea.rbind.io/contacto/
 
 format:
   html:
     toc: false
-    include-after-body: goatcounter.html
 
 
 
