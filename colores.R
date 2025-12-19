@@ -103,3 +103,8 @@ colores$ingresos_genero <- list(
 fondo = "#121A2B",
 borde = "#1D2940",
 texto = "#A5B7CAFF")
+
+colores$mapas_censo <- list(
+  fondo = "#181818",
+  borde = "#333333",
+  texto = "#AE027E")

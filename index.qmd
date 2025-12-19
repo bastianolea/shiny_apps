@@ -159,6 +159,18 @@ div(style = "overflow-y: hidden; ",
     #     )
     # ),
     
+    
+      # mapas censo 2024 ----
+    caja_app(titulo = "Mapas del Censo 2024 a nivel de manzana",
+             texto = div(
+               markdown("Visualizador sencillo que permite generar mapas de comunas a nivel de manzana censal con la información nueva del Censo de Población y Vivienda 2024."),
+              markdown("Esta app carga directamente a la cartografía oficial completa a nivel de manzana, sin ningún procesamiento o modificación.")
+               ),
+             enlace = "https://bastianoleah.shinyapps.io/censo_2024_mapas/",
+             colores = colores$mapas_censo,
+             imagen = "www/mapas_censo.png", estilo_imagen = "height: 160px; margin: 6px; margin-top: 0px;"
+    ),
+    
       # dictadura ----
     caja_app(titulo = "Violaciones a los Derechos Humanos cometidas por la dictadura cívico-militar chilena",
              texto = div(
