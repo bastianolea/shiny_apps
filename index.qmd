@@ -159,6 +159,16 @@ div(style = "overflow-y: hidden; ",
     #     )
     # ),
     
+   # suicidios ----
+    caja_app(titulo = "Casos de suicidio según egresos hospitalarios, por género",
+             texto = div(
+               markdown("Conjunto de visualizaciones que exploran los datos de egresos médicos del Ministerio de Salud de Chile, distinguiendo entre intentos de suicidio y suicidios consumados."),
+              markdown("Los gráficos buscan describir las diferencias de género en el fenómeno del suicidio, mostrando desigualdades en la cantidad de intentos y en las víctimas fatales, pero también en los métodos utilizados por hombres y mujeres.")
+               ),
+             enlace = "https://bastianolea.github.io/minsal_suicidios_genero/",
+             colores = colores$minsal_suicidios,
+             imagen = "www/minsal_suicidios.png", estilo_imagen = "height: 160px; margin: 6px; margin-top: 0px;"
+    ),
     
       # mapas censo 2024 ----
     caja_app(titulo = "Mapas del Censo 2024 a nivel de manzana",

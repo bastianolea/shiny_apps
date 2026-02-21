@@ -108,3 +108,8 @@ colores$mapas_censo <- list(
   fondo = "#181818",
   borde = "#333333",
   texto = "#AE027E")
+
+colores$minsal_suicidios <- list(
+  fondo = "#150E12",
+  texto = "#DAC2CF",
+  borde = "#3C1D2F")
