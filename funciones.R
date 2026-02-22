@@ -3,14 +3,7 @@ tag_css <- function(text) {
   tags$style(glue(text, .open = "{{", .close = "}}"))
 }
 
-estilo_cajas <- "margin: 18px; padding: 20px; padding-bottom: 1px; padding-top: 1px; 
-                 min-height: 400px; max-width: 420px;
-                 border-radius: 8px;
-                 font-size: 90%; text-align: center;
-                 margin: auto;
-                 text-decoration: none !important; 
-                 margin-bottom: 36px; margin-top: 36px;
-                 "
+
 
 estilar_cajas <- function(colores) {
   c(estilo_cajas, 
@@ -18,7 +11,6 @@ estilar_cajas <- function(colores) {
           color: ", colores$texto, " !important;
           text-decoration: none !important; 
           margin: 3px;
-          margin-top: 16px;
           margin-left: auto; margin-right: auto;
           outline: 1px solid ", colores$borde, ";
           ")
@@ -43,33 +35,6 @@ estilar_cajitas <- function(colores) {
 
 
 
-caja_app <- function(titulo = "Delincuencia en Chile",
-                     texto = "Aplicación",
-                     enlace = "https://bastianoleah.shinyapps.io/delincuencia_chile/",
-                     colores,
-                     imagen = "www/delincuencia_chile.png",
-                     estilo_imagen = "height: 150px; margin: 22px; margin-top: 8px;",
-                     colores_claros = FALSE
-) {
-  tags$a(style = "text-decoration: none !important;",
-         div(style = "padding: 4px;",
-             div(class = ifelse(colores_claros == FALSE, "icono", "icono_claro"),
-                 style = estilar_cajas(colores), 
-                 
-                 div(style = css(margin_top = "-10px"),
-                     h3(titulo)
-                 ),
-                 
-                 tags$img(src = imagen, 
-                          style = estilo_imagen),
-                 div(style = "text-align: left !important;",
-                     texto
-                 )
-             )
-         ),
-         href = enlace, 
-         target = "_blank")
-}
 
 
 caja_app_chica <- function(titulo = "App",
@@ -83,10 +48,10 @@ caja_app_chica <- function(titulo = "App",
                   borde = color |> lighten(0.3))
   
   out <- tags$a(style = "text-decoration: none !important;",
-                div(class = "icono", 
+                div(class = "cajas", 
                     style = estilar_cajitas(colores), 
                     
-                    div(style = css(margin_top = "-14px"),
+                    div(#style = css(margin_top = "-14px"),
                         h3(titulo, style = "font-size: 120%;"),
                     ),
                     

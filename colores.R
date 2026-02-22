@@ -101,15 +101,15 @@ colores$dictadura <- list(
 
 colores$ingresos_genero <- list(
 fondo = "#121A2B",
-borde = "#1D2940",
-texto = "#A5B7CAFF")
+borde = "#212E48",
+texto = "#A5B7CA")
 
 colores$mapas_censo <- list(
   fondo = "#181818",
-  borde = "#333333",
+  borde = "#272727",
   texto = "#AE027E")
 
 colores$minsal_suicidios <- list(
-  fondo = "#150E12",
+  fondo = "#190E14",
   texto = "#DAC2CF",
   borde = "#3C1D2F")
