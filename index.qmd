@@ -137,6 +137,17 @@ page_fluid(
 div(style = "display: flex; justify-content: space-between;",
     layout_columns(col_widths = c(4, 4, 4),
     
+   
+   # ebc ----
+    caja_app(titulo = "Estudio de Brechas Comunales",
+             texto = div(
+               markdown("Esta plataforma presenta los resultados del Estudio de Brechas Comunales, realizado en 2025, cuyo objetivo fue generar y proveer información sobre la situación de infraestructura y servicios en las comunas de Chile."),
+              markdown("El Estudio de Brechas Comunales fue mandatado por el artículo 45 de la Ley de Presupuesto del Sector Público 2025, y realizado por la Subdere.")
+               ),
+             enlace = "https://www.descentralizachile.cl/ebc/",
+             colores = colores$subdere_ebc,
+             imagen = "www/subdere_ebc.png", 
+    ),
     
    # suicidios ----
     caja_app(titulo = "Casos de suicidio según egresos hospitalarios, por género",

@@ -113,3 +113,9 @@ colores$minsal_suicidios <- list(
   fondo = "#190E14",
   texto = "#DAC2CF",
   borde = "#3C1D2F")
+
+
+colores$subdere_ebc <- list(
+  fondo = "#3F588A",
+  texto = "#E2EEF4",
+  borde = "#4A6392")
