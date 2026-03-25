@@ -10,7 +10,7 @@ color_fondo = "#23102B"
 # color_fondo = "#2E0E3B"
 color_texto = "#B39CCD"
 color_enlaces = "#9F69C8"
- 
+
 # color_fondo = "#1e0f26"
 # color_texto = "#d3c7dd"
 # color_enlaces = "#ba9bd7" # "#c8b1de"
@@ -70,7 +70,7 @@ colores$censo <- list(
 colores$femicidios <- list(
   fondo = "#262626",
   texto = "#f7d03a",
-  borde = "#4C4C4C")
+  borde = "#37362F")
 
 colores$cep <- list(
   fondo = "#f4f8fe",
@@ -81,12 +81,12 @@ colores$cep <- list(
 colores$comparador_mapas <- list(
   fondo = "#181818",
   texto = "#2AA198",
-  borde = "#252525")
+  borde = "#2E2E2E")
 
 colores$economia <- list(
   fondo = "#1C1833",
   texto = "#CCBCFF",
-  borde = "#262145")
+  borde = "#332D59")
 
 colores$prensa <- list(
   fondo = "#EEDABF",
@@ -100,9 +100,9 @@ colores$dictadura <- list(
 
 
 colores$ingresos_genero <- list(
-fondo = "#121A2B",
-borde = "#212E48",
-texto = "#A5B7CA")
+  fondo = "#121A2B",
+  borde = "#212E48",
+  texto = "#A5B7CA")
 
 colores$mapas_censo <- list(
   fondo = "#181818",
@@ -118,4 +118,9 @@ colores$minsal_suicidios <- list(
 colores$subdere_ebc <- list(
   fondo = "#3F588A",
   texto = "#E2EEF4",
-  borde = "#4A6392")
+  borde = "#59719F")
+
+colores$subdere_ibg <- list(
+  fondo = "#8C3052",
+  texto = "#F5DEE8",
+  borde = "#A64C6D")

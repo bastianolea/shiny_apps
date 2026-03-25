@@ -12,7 +12,7 @@ estilar_cajas <- function(colores) {
           text-decoration: none !important; 
           margin: 3px;
           margin-left: auto; margin-right: auto;
-          outline: 1px solid ", colores$borde, ";
+          border: 1px solid ", colores$borde, ";
           ")
   )
 }
@@ -28,7 +28,7 @@ estilar_cajitas <- function(colores) {
                  ", 
     paste("background-color: ", colores$fondo, "; 
           color: ", colores$texto, " !important;
-          outline: 1px solid ", colores$borde, ";
+          border: 1px solid ", colores$borde, ";
           ")
   )
 }
