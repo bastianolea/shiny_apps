@@ -258,7 +258,7 @@ div(style = "display: flex; justify-content: space-between;",
     caja_app(titulo = "Delincuencia en Chile",
              texto = div(
                markdown("Visualización de **estadísticas oficiales de delincuencia**, separadas por comuna y delito, para darle contexto y seriedad a un tema país a partir de datos objetivos."),
-              markdown("Selecciona una comuna y luego uno o varios delitos para obtener un gráfico de líneas que muestra una **serie de tiempo** de la cantidad de delitos, desde 2010 hasta 2023. Además, puedes visualizar la **cantidad de delitos por año** en la comuna seleccionada, el promedio de delitos en los gobiernos recientes, y una visualización de los tres **delitos más frecuentes** en cada comuna.")),
+              markdown("Selecciona una comuna y luego uno o varios delitos para obtener un gráfico de líneas que muestra una **serie de tiempo** de la cantidad de delitos, desde 2010 hasta 2026. Además, puedes visualizar la **cantidad de delitos por año** en la comuna seleccionada, el promedio de delitos en los gobiernos recientes, y una visualización de los tres **delitos más frecuentes** en cada comuna.")),
              enlace = "https://bastianoleah.shinyapps.io/delincuencia_chile/",
              colores = colores$delincuencia,
              imagen = "www/delincuencia_chile.png", # estilo_imagen = "height: 150px;  margin: 22px; margin-top: 8px;"
