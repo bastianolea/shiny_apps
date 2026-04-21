@@ -124,3 +124,8 @@ colores$subdere_ibg <- list(
   fondo = "#8C3052",
   texto = "#F5DEE8",
   borde = "#A64C6D")
+
+colores$densidad_comunas <- list(
+  fondo = "#E5F3FA",
+  texto = "#075180",
+  borde = "#D2E1EA")

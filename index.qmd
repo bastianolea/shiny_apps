@@ -137,7 +137,17 @@ page_fluid(
 div(style = "display: flex; justify-content: space-between;",
     layout_columns(col_widths = c(4, 4, 4),
     
-                   
+   # densidad ----
+   caja_app(titulo = "Densidad poblacional comunal",
+             texto = div(
+               markdown("Visualizador de datos que presenta la densidad de la población urbana en superficies urbanas de las comunas del país como un círculo relleno de puntos, que representan los habitantes. Entrega una forma visual de pensar la población de cada comuna, considerando su superficie.")
+               ),
+             enlace = "https://bastianoleah.shinyapps.io/densidad_comunas/",
+             colores = colores$densidad_comunas,
+             imagen = "www/densidad_comunas.png", 
+             colores_claros = TRUE
+    ),
+
    # ibg ----
    caja_app(titulo = "Índice de Brechas de Género",
              texto = div(
