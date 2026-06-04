@@ -137,17 +137,18 @@ page_fluid(
 div(style = "display: flex; justify-content: space-between;",
     layout_columns(col_widths = c(4, 4, 4),
     
-   # densidad ----
-   caja_app(titulo = "Densidad poblacional comunal",
-             texto = div(
-               markdown("Visualizador de datos que presenta la densidad de la población urbana en superficies urbanas de las comunas del país como un círculo relleno de puntos, que representan los habitantes. Entrega una forma visual de pensar la población de cada comuna, considerando su superficie.")
-               ),
-             enlace = "https://bastianoleah.shinyapps.io/densidad_comunas/",
-             colores = colores$densidad_comunas,
-             imagen = "www/densidad_comunas.png", 
-             colores_claros = TRUE
-    ),
+   
 
+   # icr ----
+   caja_app(titulo = "Índice de Competitividad Regional",
+             texto = div(
+               markdown("El Índice de Competitividad Regional (ICR), desarrollado por la Subsecretaría de Desarrollo Regional y Administrativo (Subdere) desde 1997 y actualizado metodológicamente en 2015, es un instrumento de diagnóstico territorial orientado a medir las capacidades estructurales de las regiones para sostener procesos de desarrollo económico, social y ambiental en el tiempo. El ICR recopila 79 indicadores sociales, económicos y territoriales, que permiten evaluar y comparar la competitividad de las regiones de Chile a través del tiempo.")
+               ),
+             enlace = "https://www.descentralizachile.cl/icr/",
+             colores = colores$subdere_icr,
+             imagen = "www/subdere_icr.png", 
+    ),
+   
    # ibg ----
    caja_app(titulo = "Índice de Brechas de Género",
              texto = div(
@@ -167,6 +168,17 @@ div(style = "display: flex; justify-content: space-between;",
              enlace = "https://www.descentralizachile.cl/ebc/",
              colores = colores$subdere_ebc,
              imagen = "www/subdere_ebc.png", 
+    ),
+   
+   # densidad ----
+   caja_app(titulo = "Densidad poblacional comunal",
+             texto = div(
+               markdown("Visualizador de datos que presenta la densidad de la población urbana en superficies urbanas de las comunas del país como un círculo relleno de puntos, que representan los habitantes. Entrega una forma visual de pensar la población de cada comuna, considerando su superficie.")
+               ),
+             enlace = "https://bastianoleah.shinyapps.io/densidad_comunas/",
+             colores = colores$densidad_comunas,
+             imagen = "www/densidad_comunas.png", 
+             colores_claros = TRUE
     ),
     
    # suicidios ----
@@ -190,6 +202,17 @@ div(style = "display: flex; justify-content: space-between;",
              colores = colores$mapas_censo,
              imagen = "www/mapas_censo.jpg", # estilo_imagen = "height: auto; max-height: 160px; max-width: 100%; margin: auto; margin: 6px; margin-top: 0px;"
     ),
+   
+   # delincuencia ----
+    caja_app(titulo = "Delincuencia en Chile",
+             texto = div(
+               markdown("Visualización de **estadísticas oficiales de delincuencia**, separadas por comuna y delito, para darle contexto y seriedad a un tema país a partir de datos objetivos."),
+              markdown("Selecciona una comuna y luego uno o varios delitos para obtener un gráfico de líneas que muestra una **serie de tiempo** de la cantidad de delitos, desde 2010 hasta 2026. Además, puedes visualizar la **cantidad de delitos por año** en la comuna seleccionada, el promedio de delitos en los gobiernos recientes, y una visualización de los tres **delitos más frecuentes** en cada comuna.")),
+             enlace = "https://bastianoleah.shinyapps.io/delincuencia_chile/",
+             colores = colores$delincuencia,
+             imagen = "www/delincuencia_chile.png", # estilo_imagen = "height: 150px;  margin: 22px; margin-top: 8px;"
+    ),
+    
     
       # dictadura ----
     caja_app(titulo = "Violaciones a los Derechos Humanos cometidas por la dictadura cívico-militar chilena",
@@ -261,21 +284,7 @@ div(style = "display: flex; justify-content: space-between;",
              imagen = "www/economia_chile.png", # estilo_imagen = "height: 150px; margin: 22px; margin-bottom: -8px; margin-top: 6px;"
     ),
     
-    
-    
-    
-    #delincuencia ----
-    caja_app(titulo = "Delincuencia en Chile",
-             texto = div(
-               markdown("Visualización de **estadísticas oficiales de delincuencia**, separadas por comuna y delito, para darle contexto y seriedad a un tema país a partir de datos objetivos."),
-              markdown("Selecciona una comuna y luego uno o varios delitos para obtener un gráfico de líneas que muestra una **serie de tiempo** de la cantidad de delitos, desde 2010 hasta 2026. Además, puedes visualizar la **cantidad de delitos por año** en la comuna seleccionada, el promedio de delitos en los gobiernos recientes, y una visualización de los tres **delitos más frecuentes** en cada comuna.")),
-             enlace = "https://bastianoleah.shinyapps.io/delincuencia_chile/",
-             colores = colores$delincuencia,
-             imagen = "www/delincuencia_chile.png", # estilo_imagen = "height: 150px;  margin: 22px; margin-top: 8px;"
-    ),
-    
-    
-    #corrupción ----
+    # corrupción ----
    caja_app(titulo = "Corrupción en Chile",
              texto = div(
               p("Catalogo y visualizador de los casos de corrupción más trascendentes del último tiempo en Chile, para poner en perspectiva los montos, responsables, y sectores políticos asociados."),

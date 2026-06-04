@@ -1,4 +1,3 @@
-
 # color_fondo = "#1e0f26"
 # color_texto = "#d3c7dd"
 # color_enlaces = "#ba9bd7"
@@ -35,97 +34,122 @@ colores$temperaturas <- list(
 colores$relacionador <- list(
   fondo = "#301519",
   texto = "#fecea8",
-  borde = "#402A2D")
+  borde = "#402A2D"
+)
 
 colores$comparador <- list(
   fondo = "#2a241d",
   texto = "#cdcdb7",
-  borde = "#3C3631")
+  borde = "#3C3631"
+)
 
 colores$brechas <- list(
   fondo = "#1c0e44",
   texto = "#c1abfb",
-  borde = "#2D274A")
+  borde = "#2D274A"
+)
 
 colores$corrupcion <- list(
   fondo = "#1d1e1d",
   texto = "#8eccad",
-  borde = "#303130")
+  borde = "#303130"
+)
 
 colores$delincuencia <- list(
   fondo = "#1f272b",
   texto = "#cdf2ef",
-  borde = "#32393D")
+  borde = "#32393D"
+)
 
 colores$millonarios <- list(
   fondo = "#0e3c67",
   texto = "#8BD8BD",
-  borde = "#2a5777")
+  borde = "#2a5777"
+)
 
 colores$censo <- list(
   fondo = "#365c8d",
   texto = "#abbbcf",
-  borde = "#3f6392")
+  borde = "#3f6392"
+)
 
 colores$femicidios <- list(
   fondo = "#262626",
   texto = "#f7d03a",
-  borde = "#37362F")
+  borde = "#37362F"
+)
 
 colores$cep <- list(
   fondo = "#f4f8fe",
   texto = "#4c79b6",
   # borde = "#accdf9")
-  borde = "#BBBBBB")
+  borde = "#BBBBBB"
+)
 
 colores$comparador_mapas <- list(
   fondo = "#181818",
   texto = "#2AA198",
-  borde = "#2E2E2E")
+  borde = "#2E2E2E"
+)
 
 colores$economia <- list(
   fondo = "#1C1833",
   texto = "#CCBCFF",
-  borde = "#332D59")
+  borde = "#332D59"
+)
 
 colores$prensa <- list(
   fondo = "#EEDABF",
   texto = "#866C53",
-  borde = "#A5876A")
+  borde = "#A5876A"
+)
 
 colores$dictadura <- list(
   fondo = "#000000",
   texto = "#E7E7E7",
-  borde = "#333333")
+  borde = "#333333"
+)
 
 
 colores$ingresos_genero <- list(
   fondo = "#121A2B",
   borde = "#212E48",
-  texto = "#A5B7CA")
+  texto = "#A5B7CA"
+)
 
 colores$mapas_censo <- list(
   fondo = "#181818",
   borde = "#272727",
-  texto = "#AE027E")
+  texto = "#AE027E"
+)
 
 colores$minsal_suicidios <- list(
   fondo = "#190E14",
   texto = "#DAC2CF",
-  borde = "#3C1D2F")
+  borde = "#3C1D2F"
+)
 
 
 colores$subdere_ebc <- list(
   fondo = "#3F588A",
   texto = "#E2EEF4",
-  borde = "#59719F")
+  borde = "#59719F"
+)
 
 colores$subdere_ibg <- list(
   fondo = "#8C3052",
   texto = "#F5DEE8",
-  borde = "#A64C6D")
+  borde = "#A64C6D"
+)
 
 colores$densidad_comunas <- list(
   fondo = "#E5F3FA",
   texto = "#075180",
-  borde = "#D2E1EA")
+  borde = "#D2E1EA"
+)
+
+colores$subdere_icr <- list(
+  fondo = "#2B6B92",
+  texto = "#ADD7ED",
+  borde = "#5187A8"
+)
