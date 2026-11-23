@@ -1,6 +1,6 @@
 # Visualizadores de datos en R/Shiny
 
-[![Visualizadores de datos](banner.png)](https://bastianolea.github.io/shiny_apps/)
+[![Visualizadores de datos](img/banner.png)](https://bastianolea.github.io/shiny_apps/)
 
 [Portafolio](https://bastianolea.github.io/shiny_apps/) de aplicaciones web de código abierto diseñadas y programadas por [Bastián Olea Herrera,](https://bastian.olea.biz/) magíster en sociología y *data scientist.*
 

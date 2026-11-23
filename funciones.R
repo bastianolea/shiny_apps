@@ -1,103 +1,85 @@
-
-tag_css <- function(text) {
-  tags$style(glue(text, .open = "{{", .close = "}}"))
-}
-
-
-
-estilar_cajas <- function(colores) {
-  c(estilo_cajas, 
-    paste("background-color: ", colores$fondo, "; 
-          color: ", colores$texto, " !important;
-          text-decoration: none !important; 
-          margin: 3px;
-          margin-left: auto; margin-right: auto;
-          border: 1px solid ", colores$borde, ";
-          ")
-  )
-}
-
-estilar_cajitas <- function(colores) {
-  c("margin: 18px; padding: 16px; padding-bottom: 12px; padding-top: 1px; 
-                 min-height: 120px; max-width: 380px;
-                 border-radius: 8px;
-                 font-size: 80%; text-align: left;
-                 margin: auto;
-                 text-decoration: none !important; 
-                 margin-bottom: 20px; margin-top: 20px;
-                 ", 
-    paste("background-color: ", colores$fondo, "; 
-          color: ", colores$texto, " !important;
-          border: 1px solid ", colores$borde, ";
-          ")
+# los estilos de estas funciones están en estilos.scss;
+# acá solo se entregan los colores propios de cada app como variables css
+variables_colores <- function(colores) {
+  glue(
+    "--caja-fondo: {colores$fondo}; --caja-texto: {colores$texto}; --caja-borde: {colores$borde};"
   )
 }
 
 
+caja_app <- function(titulo, texto, enlace, colores, imagen) {
+  card(
+    class = "cajas",
+    style = variables_colores(colores),
+
+    div(
+      class = "caja_titulo",
+      tags$a(
+        h3(titulo, class = "titulo_app"),
+        href = enlace,
+        target = "_blank"
+      )
+    ),
+
+    div(
+      class = "caja_imagen",
+      tags$a(
+        tags$img(src = imagen, alt = titulo),
+        href = enlace,
+        target = "_blank"
+      )
+    ),
+
+    div(class = "caja_texto", texto)
+  )
+}
 
 
+caja_app_chica <- function(titulo, texto, enlace, color) {
+  colores <- list(
+    fondo = color,
+    texto = color |> colorspace::lighten(1),
+    borde = color |> colorspace::lighten(0.3)
+  )
 
-caja_app_chica <- function(titulo = "App",
-                           texto = "Aplicación",
-                           enlace = "www.wikipedia.org",
-                           color
-) {
-  
-  colores <- list(fondo = color, #|> darken(0.5) |> desaturate(0.1),
-                  texto = color |> lighten(1),
-                  borde = color |> lighten(0.3))
-  
-  out <- tags$a(style = "text-decoration: none !important;",
-                div(class = "cajas", 
-                    style = estilar_cajitas(colores), 
-                    
-                    div(#style = css(margin_top = "-14px"),
-                        h3(titulo, style = "font-size: 120%;"),
-                    ),
-                    
-                    div(style = "text-align: left !important; opacity: .7;",
-                        texto
-                    )
-                ),
-                href = enlace, target = "_blank") 
-  
+  out <- tags$a(
+    class = "enlace_cajita",
+    div(
+      class = "cajas cajita",
+      style = variables_colores(colores),
+
+      div(
+        h3(titulo),
+      ),
+
+      div(class = "cajita_texto", texto)
+    ),
+    href = enlace,
+    target = "_blank"
+  )
+
   return(out)
 }
 
 cuadro_intro <- function(...) {
-  div(
-    style = css(padding = "16px", padding_bottom = "1px", 
-                background_color = color_destacado,
-                color = colorspace::lighten(color_texto, 0.2),
-                border_radius = "6px",
-                margin_left = "30px", margin_right = "30px",
-                margin_bottom = "20px", font_size = "82%",
-                outline = paste("1px solid ", colorspace::lighten(color_destacado, 0.05))),
-    ...
-  )
+  div(class = "cuadro_intro", ...)
 }
 
 
 cuadro_aviso <- function(...) {
+  div(class = "cuadro_aviso", ...)
+}
+
+
+cafecito <- function() {
   div(
-    style = c(
-      css(padding = "16px", padding_bottom = "1px", 
-          background_color = color_destacado,
-          color = lighten(color_texto, 0.2),
-          border_radius = "6px",
-          margin = "20px",
-          margin_top = "40px",
-          margin_left = "30px", margin_right = "30px",
-          font_size = "80%",
-          outline = paste("1px solid ", lighten(color_destacado, 0.05))
-      ),
-      # configuración de la animación de fondo
-      "animation-name: pulse; 
-                       animation-duration: 0.8s; 
-                       animation-iteration-count: infinite; 
-                       animation-direction: alternate-reverse;
-                       animation-timing-function: linear;"
-    ),
-    ...
+    class = "cafecito",
+    HTML(
+      '<script type="text/javascript" 
+         src = "https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js" 
+         data-name="bmc-button" data-slug="bastimapache" data-color="#FFDD00" data-emoji="" data-font="Bree" 
+         data-text="Regálame un cafecito" 
+         data-outline-color="#000000" data-font-color="#000000" data-coffee-color="#ffffff" ></script>'
+    )
   )
 }

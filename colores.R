@@ -1,21 +1,8 @@
-# color_fondo = "#1e0f26"
-# color_texto = "#d3c7dd"
-# color_enlaces = "#ba9bd7"
-
-color_fondo = "#23102B"
-# color_texto = "#BAA6D2"
-# color_enlaces = "#985BC6"
-
-# color_fondo = "#2E0E3B"
-color_texto = "#B39CCD"
-color_enlaces = "#9F69C8"
-
-# color_fondo = "#1e0f26"
-# color_texto = "#d3c7dd"
-# color_enlaces = "#ba9bd7" # "#c8b1de"
-color_destacado = "#31193f"
-color_destacado_2 = "#47215E" # "#422057"
-color_destacado_3 = "#724BE7"
+# colores generales (deben coincidir con las variables de estilos.scss)
+color_fondo <- "#23102B"
+color_texto <- "#B39CCD"
+color_enlaces <- "#9F69C8"
+color_destacado <- "#31193f"
 
 colores <- list()
 
@@ -82,7 +69,6 @@ colores$femicidios <- list(
 colores$cep <- list(
   fondo = "#f4f8fe",
   texto = "#4c79b6",
-  # borde = "#accdf9")
   borde = "#BBBBBB"
 )
 
@@ -152,4 +138,16 @@ colores$subdere_icr <- list(
   fondo = "#2B6B92",
   texto = "#ADD7ED",
   borde = "#5187A8"
+)
+
+colores$territorial <- list(
+  fondo = "#F8F1E5",
+  texto = "#6C635A",
+  borde = "#D3CABD"
+)
+
+colores$sitio <- list(
+  fondo = "#EAD1FA",
+  texto = "#553A74",
+  borde = "#C5A5DD"
 )

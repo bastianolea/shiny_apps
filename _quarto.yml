@@ -2,7 +2,23 @@ project:
   type: website
   output-dir: docs
 
+lang: es
+description: "Portafolio de aplicaciones web interactivas de código abierto, desarrolladas en R y Shiny, para explorar y visualizar datos sociales, económicos y territoriales de Chile."
+
 website:
+  title: "Visualizadores de datos sociales"
+  site-url: https://bastianolea.github.io/shiny_apps/
+  repo-url: https://github.com/bastianolea/shiny_apps
+  favicon: img/favicon/favicon-32x32.png
+  image: img/banner.png
+  image-alt: "Visualizadores de datos sociales, por Bastián Olea Herrera"
+  open-graph:
+    locale: es_CL
+    site-name: "Visualizadores de datos sociales"
+    image: img/banner.png
+  twitter-card:
+    card-style: summary_large_image
+    image: img/banner.png
   navbar:
     title: "Apps"
     background: "#23102B"
@@ -24,6 +40,8 @@ website:
       - icon: globe
         href: https://bastianolea.rbind.io
       - icon: twitter
+        href: https://x.com/bastimapache
+      - icon: bluesky
         href: https://bsky.app/profile/bastianolea.rbind.io
       - icon: github
         href: https://github.com/bastianolea?tab=repositories

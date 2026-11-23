@@ -1,44 +1,44 @@
 /*-- scss:defaults --*/
 
-:root {
-  --color-fondo: #23102B;
-  --color-texto: #B39CCD;
-  --color-enlaces: #9F69C8;
-  --color-destacado: #31193f;
-  --color-destacado-2: #47215E;
-  --color-destacado-3: #724BE7;
-}
+$color-fondo: #23102B;
+$color-texto: #B39CCD;
+$color-enlaces: #9F69C8;
+$color-destacado: #31193f;
+$color-destacado-2: #47215E;
+$color-destacado-3: #724BE7;
+// colorspace::lighten(color_texto, 0.2) y colorspace::lighten(color_destacado, 0.05)
+$color-texto-claro: #C4ADDF;
+$color-borde-destacado: #382445;
 
-$body-bg: #23102B;
-$body-color: #B39CCD;
-$link-color: #9F69C8;
+$body-bg: $color-fondo;
+$body-color: $color-texto;
+$link-color: $color-enlaces;
 
 h1.title, .title.h1 { 
-  margin: 24px; margin-top: 24px; margin-left: 30px; color: var(--color_enlaces); 
+  margin: 24px; margin-top: 24px; margin-left: 30px; color: var(--color-enlaces); 
 }
 
 body {
-  background-color: var(--color_fondo);
+  background-color: var(--color-fondo);
 }
 
 a {
-  color: var(--color_enlaces);
+  color: var(--color-enlaces);
 }
 
 .card {
   a {
     text-decoration: none !important; 
-    color: none !important;
   }
 }
 
 a:hover {
-  color: #724be7;
+  color: $color-destacado-3;
   text-decoration: none !important; 
 }
 
 h1{
-  color: var(--color_texto);
+  color: var(--color-texto);
 }
 
 h3 {
@@ -62,24 +62,193 @@ h3 {
   display: none; 
 }
 
+// ocultar descripción del bloque de título (solo se usa para seo)
+#title-block-header .description {
+  display: none;
+}
+
 .quarto-title-meta-contents {
-  margin-left: 30px; margin-top: 6px; margin-bottom: 12px; color: var(--color_texto);
+  margin-left: 30px; margin-top: 6px; margin-bottom: 12px; color: var(--color-texto);
 }
   
 // color hover toolbar
 .navbar-brand:hover, .nav-link:hover, .quarto-navigation-tool:hover, .navbar-brand:focus {
-  color: var(--color_texto) !important; 
+  color: var(--color-texto) !important; 
 }
 
 // colores de la animación de fondo
 @keyframes pulse {
-  from {background-color: var(--color_destacado_2);
+  from {background-color: var(--color-destacado-2);
   }
-  to {background-color: var(--color_destacado);
+  to {background-color: var(--color-destacado);
   } 
 }
 
 
 .titulo_app {
   text-align: center;
+}
+
+
+/*-- scss:rules --*/
+
+// página ----
+
+.contenedor_intro {
+  font-size: 110%;
+  color: var(--color-texto);
+  margin: 0 30px 30px 30px;
+}
+
+.espacio_16 {
+  height: 16px;
+}
+
+.espacio_20 {
+  height: 20px;
+}
+
+.contenedor_apps {
+  display: flex;
+  justify-content: space-between;
+}
+
+.otras_utilidades {
+  overflow-y: hidden;
+
+  h3 {
+    color: var(--color-texto);
+    text-align: center;
+  }
+}
+
+.texto_final {
+  margin: 10px 30px 0 30px;
+  font-size: 110%;
+  color: var(--color-texto);
+}
+
+.firma {
+  margin: 40px 30px 0 30px;
+  font-size: 90%;
+  color: var(--color-texto);
+}
+
+
+// cajas de apps ----
+// los colores de cada app se entregan como variables css desde caja_app()
+
+.card.cajas {
+  --bs-card-bg: var(--caja-fondo);
+  --bs-card-color: var(--caja-texto);
+  --bs-card-border-color: var(--caja-borde);
+  display: flex;
+  justify-content: flex-start;
+  border-radius: 10px;
+  font-size: 90%;
+  background-color: var(--caja-fondo);
+  color: var(--caja-texto) !important;
+  text-decoration: none !important;
+  margin: 3px auto;
+  border: 1px solid var(--caja-borde);
+
+  a {
+    color: var(--caja-texto);
+  }
+}
+
+.caja_titulo {
+  margin-top: -10px;
+
+  // texto en formato código dentro del título
+  code {
+    color: var(--caja-texto);
+    background-color: color-mix(in srgb, var(--caja-texto) 15%, transparent);
+    padding: 1px 6px;
+    border-radius: 4px;
+  }
+}
+
+.caja_imagen {
+  margin: 6px auto;
+
+  img {
+    height: auto;
+    max-height: 160px;
+    width: auto;
+    max-width: 100%;
+    margin: auto;
+    margin-top: 0px;
+    border-radius: 8px;
+  }
+}
+
+.caja_texto {
+  text-align: left !important;
+  hyphens: auto;
+}
+
+
+// cajas chicas ----
+
+.enlace_cajita {
+  text-decoration: none !important;
+}
+
+.cajita {
+  margin: 20px auto;
+  padding: 1px 16px 12px 16px;
+  min-height: 120px;
+  max-width: 380px;
+  border-radius: 8px;
+  font-size: 80%;
+  text-align: left;
+  text-decoration: none !important;
+  background-color: var(--caja-fondo);
+  color: var(--caja-texto) !important;
+  border: 1px solid var(--caja-borde);
+
+  h3 {
+    font-size: 120%;
+  }
+}
+
+.cajita_texto {
+  text-align: left !important;
+  opacity: .7;
+}
+
+
+// cuadros de texto ----
+
+.cuadro_intro, .cuadro_aviso {
+  padding: 16px;
+  padding-bottom: 1px;
+  background-color: var(--color-destacado);
+  color: var(--color-texto-claro);
+  border-radius: 6px;
+  outline: 1px solid var(--color-borde-destacado);
+}
+
+.cuadro_intro {
+  margin: 0 30px 20px 30px;
+  font-size: 82%;
+}
+
+.cuadro_aviso {
+  margin: 40px 30px 20px 30px;
+  font-size: 80%;
+  animation-name: pulse;
+  animation-duration: 0.8s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate-reverse;
+  animation-timing-function: linear;
+}
+
+.cafecito {
+  padding-top: 24px;
+  text-align: center;
+  margin: auto;
+  transform: scale(.7);
+  opacity: 90%;
 }
