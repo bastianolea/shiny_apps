@@ -140,6 +140,15 @@ page_fluid(
           imagen = "www/densidad_comunas.png"
         ),
         
+        # ruido
+        caja_app(
+          titulo = "Generador de ruido visual",
+          texto = "Experimento interactivo para generar ruido visual mediante texto a partir de algunos parámetros personalizables. La idea es que las olas de texto produzcan efectos visuales semi-aleatorios, y que puedas cambiar los parámetros para generar distintos patrones de ruido.",
+          enlace = "https://bastianolea-ruido-visual.share.connect.posit.cloud",
+          colores = colores$ruido,
+          imagen = "www/ruido.jpeg"
+        ),
+        
         # suicidios ----
         caja_app(
           titulo = "Casos de suicidio según egresos hospitalarios, por género",
@@ -372,12 +381,6 @@ div(class = "otras_utilidades",
                    texto = "Para personas que hacen clases particulares: entrega una estimación de ingreso mensual y tiempo semanal de trabajo en base al precio de tus clases, cantidad de alumnos, y asistencia semanal de tus alumnos.",
                    color = "#1FBE9A",
                    enlace = "https://bastianoleah.shinyapps.io/estimador_ingresos_clases/"
-    ),
-    
-    caja_app_chica(titulo = "Generador de ruido visual",
-                   texto = "Experimento para generar ruido visual mediante texto a partir de algunos parámetros personalizables. La idea es que las olas de texto produzcan efectos visuales interesantes.",
-                   color = "#262626",
-                   enlace = "https://bastianolea-ruido-visual.share.connect.posit.cloud"
     )
 )
 ```

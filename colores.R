@@ -151,3 +151,10 @@ colores$sitio <- list(
   texto = "#553A74",
   borde = "#C5A5DD"
 )
+
+
+colores$ruido <- list(
+  fondo = "#191919",
+  texto = "#ECECEC",
+  borde = "#2A2A2A"
+)
