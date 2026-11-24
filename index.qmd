@@ -377,7 +377,7 @@ div(class = "otras_utilidades",
     caja_app_chica(titulo = "Generador de ruido visual",
                    texto = "Experimento para generar ruido visual mediante texto a partir de algunos parámetros personalizables. La idea es que las olas de texto produzcan efectos visuales interesantes.",
                    color = "#262626",
-                   enlace = "https://bastianoleah.shinyapps.io/ruido_visual/"
+                   enlace = "https://bastianolea-ruido-visual.share.connect.posit.cloud"
     )
 )
 ```
